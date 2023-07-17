@@ -1,13 +1,15 @@
-
-import { CssBaseline } from "@mui/material";
+import { CssBaseline, ThemeProvider, createTheme, useTheme } from "@mui/material";
 import type { AppProps } from "next/app";
-import '@/styles/globals.css'
+import "@/styles/globals.css";
+import theme from "@/styles/theme";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
-      <CssBaseline />
-      <Component {...pageProps} />
+      <ThemeProvider theme = {theme}>
+        <CssBaseline />
+        <Component {...pageProps} />
+      </ThemeProvider>
     </>
   );
 }

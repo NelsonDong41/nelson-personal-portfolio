@@ -1,9 +1,10 @@
 import Layout from "@/components/Layout"
+import { Button, Container } from "@mui/material"
 
 export default function HomePage() {
     return <>
         <Layout>
-            <div>hello</div>
+            <Button variant="contained">hello</Button>
         </Layout>
     </>
 }
