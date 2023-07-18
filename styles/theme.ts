@@ -1,18 +1,38 @@
-import { createTheme, responsiveFontSizes } from "@mui/material";
+import {
+  Palette,
+  PaletteMode,
+  ThemeOptions,
+  createTheme,
+  responsiveFontSizes,
+} from "@mui/material";
 
-let theme = createTheme({
+export const getDesignTokens = (mode: PaletteMode) : ThemeOptions => ({
   palette: {
-    light: {
-      primary: "#a4c4f4",
+    mode,
+    ...(mode === "light"
+      ? {light : {
+          primary: "#a4c4f4",
 
-      secondary: "#1b0603",
+          secondary: "#1b0603",
 
-      accent: "#d1881a",
+          accent: "#d1881a",
 
-      background: "#042124",
+          background: "#042124",
 
-      text: "#edfbfd",
-    },
+          text: "#edfbfd",
+        }}
+      : {
+        dark : {
+          primary: "#a4c4f4",
+
+          secondary: "#1b0603",
+
+          accent: "#d1881a",
+
+          background: "#042124",
+
+          text: "#edfbfd",
+        }}),
   },
   breakpoints: {
     values: {
@@ -23,13 +43,3 @@ let theme = createTheme({
     },
   },
 });
-
-theme = createTheme({
-    palette: {
-        mode: 'dark',
-    },
-})
-
-theme = responsiveFontSizes(theme);
-
-export default theme;

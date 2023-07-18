@@ -1,4 +1,5 @@
 import "@mui/material";
+import { PaletteMode } from "@mui/material";
 
 declare module "@mui/material/styles" {
     interface BreakpointOverrides {
@@ -11,14 +12,6 @@ declare module "@mui/material/styles" {
       tablet: true;
       laptop: true;
       desktop: true;
-    }
-    interface Palette {
-      light: Palette["primary"];
-      dark: Palette["secondary"];
-    }
-    interface PaletteOptions {
-      light?: PaletteOptions["primary"];
-      dark?: PaletteOptions["secondary"];
     }
     interface PaletteColor {
       primary: string;
