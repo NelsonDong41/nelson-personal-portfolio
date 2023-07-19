@@ -6,33 +6,44 @@ import {
   responsiveFontSizes,
 } from "@mui/material";
 
-export const getDesignTokens = (mode: PaletteMode) : ThemeOptions => ({
+export const getDesignTokens = (mode: PaletteMode): ThemeOptions => ({
   palette: {
     mode,
     ...(mode === "light"
-      ? {light : {
-          primary: "#a4c4f4",
+      ? {
+          primary: {
+            main: "#a4c4f4",
+          },
 
-          secondary: "#1b0603",
+          secondary: {
+            main: "#1b0603",
+          },
 
           accent: "#d1881a",
 
-          background: "#042124",
+          background: { default: "#042124" },
 
-          text: "#edfbfd",
-        }}
+          text: {
+            primary : "#edfbfd"
+          },
+        }
       : {
-        dark : {
-          primary: "#a4c4f4",
+          primary: {
+            main: "#2f4c6a",
+          },
 
-          secondary: "#1b0603",
+          secondary: {
+            main: "#cacae8",
+          },
 
-          accent: "#d1881a",
+          accent: "#4746a0",
 
-          background: "#042124",
+          background: { default: "#fbfdfd" },
 
-          text: "#edfbfd",
-        }}),
+          text: {
+            primary : "#091515"
+          },
+        }),
   },
   breakpoints: {
     values: {

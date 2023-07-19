@@ -13,18 +13,29 @@ declare module "@mui/material/styles" {
       laptop: true;
       desktop: true;
     }
-    interface PaletteColor {
-      primary: string;
-      secondary: string;
-      accent: string;
-      background: string;
-      text: string;
-    }
-    interface PaletteColorOptions {
-      primary: string;
-      secondary: string;
-      accent: string;
-      background: string;
-      text: string;
-    }
+
+    // interface Palette {
+    //   light: Palette['primary'],
+    //   dark: Palette['primary'],
+    // }
+    
+    // interface PaletteOptions {
+    //   light?: Palette['primary'],
+    //   dark?: Palette['primary'],
+    // }
+
+    // interface PaletteColor {
+    //   primary: string;
+    //   secondary: string;
+    //   accent: string;
+    //   background: string;
+    //   text: string;
+    // }
+    // interface PaletteColorOptions {
+    //   primary: string;
+    //   secondary: string;
+    //   accent: string;
+    //   background: string;
+    //   text: string;
+    // }
   }
