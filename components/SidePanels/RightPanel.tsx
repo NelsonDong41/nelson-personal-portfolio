@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import { Box } from "@mui/material";
 import { StyledAside } from "./StyledAside";
 
 interface RightPanelProps {

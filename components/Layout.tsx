@@ -1,6 +1,3 @@
-import { AppProps } from "next/app";
-import { ReactComponentElement } from "react";
-import SidePanel from "./SidePanels/LeftPanel";
 import RightPanel from "./SidePanels/RightPanel";
 import LeftPanel from "./SidePanels/LeftPanel";
 import styled from "@emotion/styled";
