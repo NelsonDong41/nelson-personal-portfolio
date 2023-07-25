@@ -11,12 +11,17 @@ import { useMemo, useState, createContext, useEffect } from "react";
 import { getDesignTokens } from "@/styles/theme";
 import { ColorModeContent } from "@/types";
 
+const sectionNames = ["Section1", "Section2", "Section3", "Section4"]
+
 export const ColorModeContext = createContext<ColorModeContent>({
   toggleColorMode: () => {}
 })
 
 export default function App({ Component, pageProps }: AppProps) {
   const [mode, setMode] = useState<PaletteMode>("dark");
+  const [selectedSection, setSelectedSection] = useState<String>(sectionNames[0])
+
+  
 
   useEffect(() => {
     setMode(localStorage.getItem('mode') === "dark" ? "dark" : "light")

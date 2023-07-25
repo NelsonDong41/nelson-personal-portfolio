@@ -1,14 +1,25 @@
 import { AppProps } from "next/app";
 import { ReactComponentElement } from "react";
+import SidePanel from "./SidePanels/LeftPanel";
+import RightPanel from "./SidePanels/RightPanel";
+import LeftPanel from "./SidePanels/LeftPanel";
+import styled from "@emotion/styled";
 
-export interface LayoutProps {
-    children: React.ReactNode;
-  }
+interface LayoutProps {
+    leftChildren: React.ReactNode;
+    rightChildren: React.ReactNode; 
+}
+
+const StyledContainer = styled.div`
+    position: absolute;
+    width: 100%;
+    height: 100%;
+`
 
 export default function Layout(props: LayoutProps ) {
-    const {children} = props;
-    return <div>
-        <h1>AHHHHHHHHHH</h1>
-        {children}
-    </div>
+    const {leftChildren, rightChildren} = props;
+    return <StyledContainer>
+        <LeftPanel>{leftChildren}</LeftPanel>
+        <RightPanel>{rightChildren}</RightPanel>
+    </StyledContainer>
 }
