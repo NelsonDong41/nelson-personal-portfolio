@@ -18,9 +18,10 @@ interface LeftPanelProps {
 }
 
 const StyledLeft = styled.div`
-  width: 80%;
+  width: 100%;
   height: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 `;
@@ -32,17 +33,20 @@ export default function LeftPanel(props: LeftPanelProps) {
     <Drawer
       sx={{
         width: "50%",
-        flexShrink: 0,
+        flexShrink: 1,
         "& .MuiDrawer-paper": {
           width: "50%",
           boxSizing: "border-box",
           border: 0,
           backgroundColor: theme.palette.background.default,
-          alignItems: "flex-end"
+          alignItems: "flex-end",
+          overflow:"hidden",
         },
+        overflow:"hidden",
       }}
       variant="permanent"
       anchor="left"
+      
     >
       <StyledLeft>{children}</StyledLeft>
     </Drawer>

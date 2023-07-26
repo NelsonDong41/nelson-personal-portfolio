@@ -6,8 +6,7 @@ interface RightPanelProps {
 }
 
 const StyledRight = styled.div`
-  padding-left: 50vw;
-  width: 100%;
+  width: 50vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
