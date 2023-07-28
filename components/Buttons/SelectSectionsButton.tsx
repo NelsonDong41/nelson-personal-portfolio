@@ -12,7 +12,7 @@ export default function SelectSectionsButton(props: SelectSectionsButtonProps) {
       {sectionsList?.map((sectionName) => {
 
         const cleanedID = sectionName.toLowerCase().trim() + "id"
-        return (<Button variant="text">
+        return (<Button key={cleanedID} variant="text">
           <Link
             activeClass="active"
             to={cleanedID}

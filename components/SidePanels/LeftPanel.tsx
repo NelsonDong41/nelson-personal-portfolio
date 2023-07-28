@@ -11,44 +11,27 @@ import {
   Toolbar,
   useTheme,
 } from "@mui/material";
-import { StyledAside } from "./StyledAside";
+import { BreakPoints } from "@/styles/breakpoints";
+import LeftPanelContent from "../PanelContent/LeftPanelContent";
 
-interface LeftPanelProps {
-  children: React.ReactNode;
-}
 
 const StyledLeft = styled.div`
-  width: 100%;
+  width: 50%;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: fixed;
+  z-index: 1;
+  @media (max-width: ${BreakPoints.laptop}px) {
+    position: relative;
+    width: 100%;
+  }
 `;
 
-export default function LeftPanel(props: LeftPanelProps) {
-  const theme = useTheme();
-  const { children } = props;
+export default function LeftPanel() {
   return (
-    <Drawer
-      sx={{
-        width: "50%",
-        flexShrink: 1,
-        "& .MuiDrawer-paper": {
-          width: "50%",
-          boxSizing: "border-box",
-          border: 0,
-          backgroundColor: theme.palette.background.default,
-          alignItems: "flex-end",
-          overflow:"hidden",
-        },
-        overflow:"hidden",
-      }}
-      variant="permanent"
-      anchor="left"
-      
-    >
-      <StyledLeft>{children}</StyledLeft>
-    </Drawer>
+    <StyledLeft><LeftPanelContent /></StyledLeft>
   );
 }
