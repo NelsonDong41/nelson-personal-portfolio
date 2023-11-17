@@ -1,23 +1,25 @@
 import styled from "@emotion/styled";
 import { BreakPoints } from "@/styles/breakpoints";
-import RightPanelContent from "../PanelContent/RightPanelContent";
+import RightPanelContent from "./PanelContent/RightPanelContent";
 import { Grid } from "@mui/material";
 
 const StyledRight = styled(Grid)`
-  width: 100%;
-  padding-left: 50%;
+  width: 50vw;
+  left: 50vw;
   position: absolute;
   z-index: auto;
   @media (max-width: ${BreakPoints.laptop}px) {
     position: relative;
-    padding-left: 0;
+    width: 100vw;
+    left: 0;
   }
 `;
 
-export default function RightPanel() {
+const RightPanel: React.FC = () => {
   return (
     <StyledRight>
       <RightPanelContent />
     </StyledRight>
   );
-}
+};
+export default RightPanel;

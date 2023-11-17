@@ -1,7 +1,6 @@
 import { KeyboardDoubleArrowUp } from "@mui/icons-material";
 import { Box, Button } from "@mui/material";
 import { animateScroll as scroll } from "react-scroll";
-import { scrollToTop } from "react-scroll/modules/mixins/animate-scroll";
 
 export default function ScrollToTop() {
   return (

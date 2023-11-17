@@ -1,22 +1,9 @@
 import styled from "@emotion/styled";
-import {
-  Box,
-  Divider,
-  Drawer,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
-  Toolbar,
-  useTheme,
-} from "@mui/material";
 import { BreakPoints } from "@/styles/breakpoints";
-import LeftPanelContent from "../PanelContent/LeftPanelContent";
-
+import LeftPanelContent from "./PanelContent/LeftPanelContent";
 
 const StyledLeft = styled.div`
-  width: 50%;
+  width: 50vw;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -30,8 +17,12 @@ const StyledLeft = styled.div`
   }
 `;
 
-export default function LeftPanel() {
+const LeftPanel : React.FC = () => {
   return (
-    <StyledLeft><LeftPanelContent /></StyledLeft>
+    <StyledLeft>
+      <LeftPanelContent />
+    </StyledLeft>
   );
 }
+
+export default LeftPanel 

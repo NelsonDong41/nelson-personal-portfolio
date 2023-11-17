@@ -1,1 +1,1 @@
-export const sectionNames = ["Section1", "Section2", "Section3", "Section4"]
+export const sectionNames = ["About", "Section2", "Section3", "Section4"]

@@ -1,37 +1,31 @@
-import RightPanel from "./SidePanels/RightPanel";
-import LeftPanel from "./SidePanels/LeftPanel";
 import styled from "@emotion/styled";
 import { BreakPoints } from "@/styles/breakpoints";
-import { Box, useMediaQuery, useTheme } from "@mui/material";
-import ScrollToTop from "./Buttons/ScrollToTop";
+import { Box } from "@mui/material";
+import React from "react";
 
 interface LayoutProps {
-  leftChildren: React.ReactNode;
-  rightChildren: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 const StyledContainer = styled(Box)`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  display: flex;
+  width: 100vw;
 
   @media (max-width: ${BreakPoints.laptop}px) {
     flex-direction: column;
+    height: fit-content;
   }
 `;
 
-export default function Layout(props: LayoutProps) {
-  const { leftChildren, rightChildren } = props;
-  const theme = useTheme();
-  const isSmall = useMediaQuery(theme.breakpoints.up("laptop"));
+const Layout: React.FC<LayoutProps> = (props : LayoutProps) => {
+  const children = props.children;
   return (
     <>
       <StyledContainer>
-        <LeftPanel />
-        <RightPanel />
+        {children}
       </StyledContainer>
-      <ScrollToTop />
+      
     </>
   );
-}
+};
+
+export default Layout;

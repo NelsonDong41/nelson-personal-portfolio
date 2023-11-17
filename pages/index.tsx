@@ -1,21 +1,19 @@
+import ScrollToTop from "@/components/Buttons/ScrollToTop";
 import Layout from "@/components/Layout";
-import { Box, Button, Container } from "@mui/material";
-import { useContext } from "react";
-import { ColorModeContext } from "./_app";
-import Signature from "@/components/images/Signature";
-import styled from "@emotion/styled";
-import { animateScroll as scroll } from "react-scroll";
-import ColorThemeButton from "@/components/Buttons/ColorThemeButton";
-import SelectSectionsButton from "@/components/Buttons/SelectSectionsButton";
-import LeftPanelContent from "@/components/PanelContent/LeftPanelContent";
-import RightPanelContent from "@/components/PanelContent/RightPanelContent";
+import LeftPanel from "@/components/SidePanels/LeftPanel";
+import RightPanel from "@/components/SidePanels/RightPanel";
 
 
-export default function HomePage() {
-
+const HomePage: React.FC = () => {
   return (
     <>
-      <Layout leftChildren={LeftPanelContent()} rightChildren={RightPanelContent()} />
+      <Layout>
+        <LeftPanel />
+        <RightPanel />
+      </Layout>
+      <ScrollToTop />
     </>
   );
-}
+};
+
+export default HomePage;

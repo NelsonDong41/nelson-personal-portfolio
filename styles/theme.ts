@@ -1,10 +1,4 @@
-import {
-  Palette,
-  PaletteMode,
-  ThemeOptions,
-  createTheme,
-  responsiveFontSizes,
-} from "@mui/material";
+import { PaletteMode, ThemeOptions } from "@mui/material";
 import { BreakPoints } from "./breakpoints";
 
 export const getDesignTokens = (mode: PaletteMode): ThemeOptions => ({
@@ -23,12 +17,12 @@ export const getDesignTokens = (mode: PaletteMode): ThemeOptions => ({
           accent: "#be7a0e",
 
           background: {
-            //  default: "#042124" 
-             default: "#fdf3e3" 
-            },
+            //  default: "#042124"
+            default: "#fdf3e3",
+          },
 
           text: {
-            primary : "#2f1f04"
+            primary: "#2f1f04",
           },
         }
       : {
@@ -45,11 +39,23 @@ export const getDesignTokens = (mode: PaletteMode): ThemeOptions => ({
           background: { default: "#090801" },
 
           text: {
-            primary : "#fcfbed"
+            primary: "#fcfbed",
           },
         }),
   },
   breakpoints: {
     values: BreakPoints,
+  },
+  typography: {
+    h3: {
+      fontFamily: "Spectral, serif",
+      fontWeight: 600,
+      fontSize: '42px',
+    },
+    body1: {
+      fontFamily: "Rubik, sans-serif",
+      fontWeight: 400,
+      fontSize: '20px',
+    },
   },
 });

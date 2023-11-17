@@ -1,17 +1,12 @@
 import { Box, Button } from "@mui/material";
 import { Link } from "react-scroll";
+import { sectionNames } from "@/util/constants";
 
-interface SelectSectionsButtonProps {
-  sectionsList: String[];
-}
-
-export default function SelectSectionsButton(props: SelectSectionsButtonProps) {
-  const sectionsList = props.sectionsList;
+export default function SelectSectionsButton() {
   return (
     <Box>
-      {sectionsList?.map((sectionName) => {
-
-        const cleanedID = sectionName.toLowerCase().trim() + "id"
+      {sectionNames.map((sectionName) => {
+        const cleanedID = sectionName.toLowerCase().trim() + "-section"
         return (<Button key={cleanedID} variant="text">
           <Link
             activeClass="active"
