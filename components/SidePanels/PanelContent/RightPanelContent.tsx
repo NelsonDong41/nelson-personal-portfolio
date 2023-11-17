@@ -2,6 +2,7 @@ import { Box, Button, Grid, ToggleButton } from "@mui/material";
 import styled from "@emotion/styled";
 import AboutSection from "@/components/Sections/About/AboutSection";
 import ColorThemeButton from "../../Buttons/ColorThemeButton";
+import ExperienceSection from "@/components/Sections/Experience/ExperienceSection";
 
 const StyledRight = styled.div`
   display: flex;
@@ -14,10 +15,10 @@ const RightPanelContent: React.FC = () => {
   return (
     <StyledRight>
         <AboutSection id="about-section"/>
-        <AboutSection title="Section 2" id="section2-section"/>
-        <AboutSection title="Section 3" id="section3-section"/>
-        <AboutSection title="Section 4" id="section4-section"/>
-        <AboutSection title="Section 5" id="section5-section"/>
+        <ExperienceSection id="experience-section"/>
+        <AboutSection id="section3-section"/>
+        <AboutSection id="section4-section"/>
+        <AboutSection id="section5-section"/>
         <ColorThemeButton />
     </StyledRight>
   );

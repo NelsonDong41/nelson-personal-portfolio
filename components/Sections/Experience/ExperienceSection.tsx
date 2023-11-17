@@ -8,7 +8,7 @@ const AboutSection: React.FC<ExperienceSectionProps> = ({
 }: ExperienceSectionProps) => {
   return (
     <Section id={id}>
-      <AboutSectionContent />
+      <ExperienceSectionContent />
     </Section>
   );
 };
