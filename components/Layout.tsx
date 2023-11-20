@@ -8,8 +8,6 @@ interface LayoutProps {
 }
 
 const StyledContainer = styled(Box)`
-  width: 100vw;
-
   @media (max-width: ${BreakPoints.laptop}px) {
     flex-direction: column;
     height: fit-content;

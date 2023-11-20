@@ -1,16 +1,18 @@
 import Section, { SectionProps } from "../Section";
 import ExperienceSectionContent from "./ExperienceSectionContent";
+import { ExperienceCardInfos } from "@/util/constants";
 
 interface ExperienceSectionProps extends SectionProps {}
 
-const AboutSection: React.FC<ExperienceSectionProps> = ({
+
+const ExperienceSection: React.FC<ExperienceSectionProps> = ({
   id,
 }: ExperienceSectionProps) => {
   return (
     <Section id={id}>
-      <ExperienceSectionContent />
+      <ExperienceSectionContent CardInfos = {ExperienceCardInfos}/>
     </Section>
   );
 };
 
-export default AboutSection;
+export default ExperienceSection;

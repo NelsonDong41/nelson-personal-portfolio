@@ -11,9 +11,11 @@ const StyledLeft = styled.div`
   align-items: center;
   position: fixed;
   z-index: 1;
+  padding-left: 10vw;
   @media (max-width: ${BreakPoints.laptop}px) {
     position: relative;
     width: 100%;
+    padding-left: 0;
   }
 `;
 

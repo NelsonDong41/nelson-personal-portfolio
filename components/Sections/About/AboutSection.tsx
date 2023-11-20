@@ -4,9 +4,9 @@ import AboutSectionContent from "./AboutSectionContent";
 interface AboutSectionProps extends SectionProps {
 }
 
-const AboutSection : React.FC<AboutSectionProps> = ({title, id} : AboutSectionProps) => {
+const AboutSection : React.FC<AboutSectionProps> = ({ id} : AboutSectionProps) => {
   return (
-    <Section title = {title || ""} id = {id}>
+    <Section id = {id}>
       <AboutSectionContent />
     </Section>
   )

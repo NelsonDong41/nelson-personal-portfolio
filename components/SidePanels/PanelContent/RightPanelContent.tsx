@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import AboutSection from "@/components/Sections/About/AboutSection";
 import ColorThemeButton from "../../Buttons/ColorThemeButton";
 import ExperienceSection from "@/components/Sections/Experience/ExperienceSection";
+import ProjectSection from "@/components/Sections/Project/ProjectSection";
 
 const StyledRight = styled.div`
   display: flex;
@@ -16,9 +17,7 @@ const RightPanelContent: React.FC = () => {
     <StyledRight>
         <AboutSection id="about-section"/>
         <ExperienceSection id="experience-section"/>
-        <AboutSection id="section3-section"/>
-        <AboutSection id="section4-section"/>
-        <AboutSection id="section5-section"/>
+        <ProjectSection id="project-section"/>
         <ColorThemeButton />
     </StyledRight>
   );

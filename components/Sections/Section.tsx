@@ -1,16 +1,17 @@
 import styled from "@emotion/styled";
+import { Element } from "react-scroll";
 
 export interface SectionProps {
   id: string;
   children?: React.ReactNode;
 }
 
-const StyledSection = styled.div`
+const StyledSection = styled(Element)`
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10%;
+  margin: 5vh 0;
 `;
 
 const Section: React.FC<SectionProps> = ({
@@ -18,7 +19,7 @@ const Section: React.FC<SectionProps> = ({
   children,
 }: SectionProps) => {
   return (
-    <StyledSection id={id}>
+    <StyledSection name = {id}>
       {children}
     </StyledSection>
   );

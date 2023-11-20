@@ -17,6 +17,36 @@ const StyledH3: React.FC<StyledTypographyProps> = ({
   );
 };
 
+const StyledH4: React.FC<StyledTypographyProps> = ({
+  children,
+}: StyledTypographyProps) => {
+  return (
+    <Typography variant="h4" sx={{ overflow: "hidden" }}>
+      {children}
+    </Typography>
+  );
+};
+
+const StyledH5: React.FC<StyledTypographyProps> = ({
+  children,
+}: StyledTypographyProps) => {
+  return (
+    <Typography variant="h5" sx={{ overflow: "hidden" }}>
+      {children}
+    </Typography>
+  );
+};
+
+const StyledH6: React.FC<StyledTypographyProps> = ({
+  children,
+}: StyledTypographyProps) => {
+  return (
+    <Typography variant="h6" sx={{ overflow: "hidden" }}>
+      {children}
+    </Typography>
+  );
+};
+
 const StyledBody1: React.FC<StyledTypographyProps> = ({
   children,
 }: StyledTypographyProps) => {
@@ -38,4 +68,4 @@ const StyledLink: React.FC<StyledTypographyProps> = ({
   );
 };
 
-export { StyledH3, StyledBody1, StyledLink };
+export { StyledH3, StyledBody1, StyledLink, StyledH4, StyledH5, StyledH6 };

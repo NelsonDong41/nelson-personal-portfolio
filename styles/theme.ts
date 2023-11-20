@@ -17,8 +17,7 @@ export const getDesignTokens = (mode: PaletteMode): ThemeOptions => ({
           accent: "#be7a0e",
 
           background: {
-            //  default: "#042124"
-            default: "#fdf3e3",
+            default: "#fdf3e3"
           },
 
           text: {
@@ -36,7 +35,7 @@ export const getDesignTokens = (mode: PaletteMode): ThemeOptions => ({
 
           accent: "#7626df",
 
-          background: { default: "#090801" },
+          background: { default: "rgb(15, 23, 42)" },
 
           text: {
             primary: "#fcfbed",
