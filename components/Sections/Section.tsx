@@ -9,6 +9,7 @@ export interface SectionProps {
 const StyledSection = styled(Element)`
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 5vh 0;

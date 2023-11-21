@@ -1,9 +1,15 @@
+import styled from "@emotion/styled";
 import Section, { SectionProps } from "../Section";
 import ExperienceSectionContent from "./ExperienceSectionContent";
 import { ExperienceCardInfos } from "@/util/constants";
 
 interface ExperienceSectionProps extends SectionProps {}
 
+const StyledClosingLink = styled.div`
+  display: flex;
+  align-self: flex-start;
+  margin: 0 5%;
+`;
 
 const ExperienceSection: React.FC<ExperienceSectionProps> = ({
   id,
@@ -11,6 +17,7 @@ const ExperienceSection: React.FC<ExperienceSectionProps> = ({
   return (
     <Section id={id}>
       <ExperienceSectionContent CardInfos = {ExperienceCardInfos}/>
+      <StyledClosingLink>Checkout All Experiences</StyledClosingLink>
     </Section>
   );
 };

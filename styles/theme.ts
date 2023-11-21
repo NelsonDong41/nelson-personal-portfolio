@@ -25,20 +25,47 @@ export const getDesignTokens = (mode: PaletteMode): ThemeOptions => ({
           },
         }
       : {
-          primary: {
-            main: "#89d920",
+          // primary: {
+          //   main: "#89d920",
+          // },
+
+          // secondary: {
+          //   main: "#070a31",
+          // },
+
+          // accent: "#7626df",
+
+          // background: { default: '#011627' },
+
+          // text: {
+          //   primary: "#fcfbed",
+          // },
+
+          background: {
+            default: '#011627',
+            paper: '#0b253a',
           },
-
-          secondary: {
-            main: "#070a31",
-          },
-
-          accent: "#7626df",
-
-          background: { default: "rgb(15, 23, 42)" },
-
           text: {
-            primary: "#fcfbed",
+            primary: '#d6deeb',
+            secondary: '#5f7e97',
+          },
+          action: {
+            active: '#13344f',
+            hover: '#697098',
+          },
+          primary: {
+            main: '#084d81',
+            light: '#5f7e9790',
+            contrastText: '#FFFFFF',
+          },
+          secondary: {
+            main: '#7e57c2',
+          },
+          error: {
+            main: '#01111d',
+          },
+          warning: {
+            main: '#0e293f',
           },
         }),
   },
@@ -56,5 +83,11 @@ export const getDesignTokens = (mode: PaletteMode): ThemeOptions => ({
       fontWeight: 400,
       fontSize: '20px',
     },
+    button: {
+      textTransform: 'none',
+      fontFamily: 'inherit',
+      fontSize: 'inherit',
+      margin: 0,
+    }
   },
 });

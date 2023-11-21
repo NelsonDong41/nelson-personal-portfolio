@@ -3,6 +3,7 @@ import {
   PaletteMode,
   ThemeProvider,
   createTheme,
+  useMediaQuery,
   useTheme,
 } from "@mui/material";
 import type { AppProps } from "next/app";
@@ -12,28 +13,25 @@ import { getDesignTokens } from "@/styles/theme";
 import { ColorModeContent } from "@/types";
 
 export const ColorModeContext = createContext<ColorModeContent>({
-  toggleColorMode: () => {}
-})
+  toggleColorMode: () => {},
+});
 
 export default function App({ Component, pageProps }: AppProps) {
-  const [mode, setMode] = useState<PaletteMode>("dark");
+  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
 
-  useEffect(() => {
-    setMode(localStorage.getItem('mode') === "dark" ? "dark" : "light")
-  }, [])
+  const [mode, setMode] = useState<PaletteMode>(
+    prefersDarkMode ? "light" : "dark"
+  );
 
   const colorMode = useMemo(
     () => ({
       toggleColorMode: () => {
-        setMode((prevColor: PaletteMode) => {
-          const newMode = prevColor === "light" ? "dark" : "light"
-          localStorage.setItem('mode', newMode)
-          return newMode;
-        }
+        setMode((prevColor: PaletteMode) =>
+          prevColor === "light" ? "dark" : "light"
         );
       },
     }),
-    []
+    [prefersDarkMode]
   );
 
   const theme = useMemo(() => createTheme(getDesignTokens(mode)), [mode]);

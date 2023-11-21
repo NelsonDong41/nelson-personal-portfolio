@@ -1,10 +1,14 @@
-import { MenuItem, Typography } from "@mui/material";
+import { Button, MenuItem, Typography, useTheme } from "@mui/material";
 import React from "react";
 import Link from "next/link";
+import { palette, PaletteProps, spacing, SpacingProps } from "@mui/system";
+import styled from "@emotion/styled";
 
 interface StyledTypographyProps {
   children?: React.ReactNode;
   link?: string;
+  style?: any;
+  target?: any;
 }
 
 const StyledH3: React.FC<StyledTypographyProps> = ({
@@ -53,19 +57,25 @@ const StyledBody1: React.FC<StyledTypographyProps> = ({
   return <Typography variant="body1">{children}</Typography>;
 };
 
-const StyledLink: React.FC<StyledTypographyProps> = ({
+const StyledLinkBase = styled(Link)<PaletteProps & StyledTypographyProps>`
+  ${palette};
+`;
+
+export default function StyledLink({
   link,
   children,
-}: StyledTypographyProps) => {
+}: PaletteProps & StyledTypographyProps) {
   return (
-    <Link
-      href={link || "404"}
-      style={{ textDecoration: "none" }}
-      target="_blank"
-    >
-      {children}
-    </Link>
+    <Button variant="text" style={{ padding: 0 }}>
+      <StyledLinkBase
+        href={link || "404"}
+        style={{ textDecoration: "none" }}
+        target="_blank"
+      >
+        {children}
+      </StyledLinkBase>
+    </Button>
   );
-};
+}
 
 export { StyledH3, StyledBody1, StyledLink, StyledH4, StyledH5, StyledH6 };
