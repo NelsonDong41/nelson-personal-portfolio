@@ -21,7 +21,7 @@ const Layout: React.FC<LayoutProps> = (props : LayoutProps) => {
       <StyledContainer>
         {children}
       </StyledContainer>
-      
+      <div className = "cursor"></div>
     </>
   );
 };

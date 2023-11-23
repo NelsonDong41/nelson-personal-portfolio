@@ -25,22 +25,6 @@ export const getDesignTokens = (mode: PaletteMode): ThemeOptions => ({
           },
         }
       : {
-          // primary: {
-          //   main: "#89d920",
-          // },
-
-          // secondary: {
-          //   main: "#070a31",
-          // },
-
-          // accent: "#7626df",
-
-          // background: { default: '#011627' },
-
-          // text: {
-          //   primary: "#fcfbed",
-          // },
-
           background: {
             default: '#011627',
             paper: '#0b253a',

@@ -4,4 +4,44 @@
 * {
   top: 0;
   overflow-x: hidden;
+  cursor: none;
+}
+
+.hover-this {
+  transition: all 0.3s ease;
+}
+
+
+.cursor {
+  pointer-events: none;
+  position: fixed;
+  top: -20vh;
+  padding: 0.3rem;
+  background-color: #fff;
+  border-radius: 50%;
+  mix-blend-mode: difference;
+  transition: transform 0.3s ease;
+}
+
+.cursorHovered {
+  transform: translate(-50%, -50%) scale(20);
+}
+
+@media(min-width: 900px) {
+  nav {
+        display: flex;
+        justify-content: space-around;
+  }
+}
+
+@media(max-width: 900px) {
+  nav {
+        top: 30%;
+  }
+
+  .hover-this {
+        width: 100%;
+        padding: 20px 0;
+        display: inline-block;
+  }
 }

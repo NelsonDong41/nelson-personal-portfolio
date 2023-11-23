@@ -11,6 +11,7 @@ import "@/styles/globals.css";
 import { useMemo, useState, createContext, useEffect } from "react";
 import { getDesignTokens } from "@/styles/theme";
 import { ColorModeContent } from "@/types";
+import CursorEffect from "../util/cursorEffect"
 
 export const ColorModeContext = createContext<ColorModeContent>({
   toggleColorMode: () => {},
@@ -19,17 +20,22 @@ export const ColorModeContext = createContext<ColorModeContent>({
 export default function App({ Component, pageProps }: AppProps) {
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
 
-  const [mode, setMode] = useState<PaletteMode>(
-    prefersDarkMode ? "light" : "dark"
-  );
+  const [mode, setMode] = useState<PaletteMode>("dark");
 
+  useEffect(() => {
+    setMode(prefersDarkMode ? "dark" : "light")
+  }, [prefersDarkMode])
+
+  useEffect(() => {
+    CursorEffect()
+  }, [])
+  
   const colorMode = useMemo(
     () => ({
-      toggleColorMode: () => {
-        setMode((prevColor: PaletteMode) =>
+      toggleColorMode: 
+        () => setMode((prevColor: PaletteMode) =>
           prevColor === "light" ? "dark" : "light"
-        );
-      },
+        )
     }),
     [prefersDarkMode]
   );

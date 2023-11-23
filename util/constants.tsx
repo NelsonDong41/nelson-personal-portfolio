@@ -18,7 +18,7 @@ export const ExperienceCardInfos: CardInfo[] = sortCardInfos([
   {
     title: "HackBeanpot",
     subtitle: "Software Engineer",
-    description: `Blah BLah BLah Blahah ahahahahahsdjfjasdbcmhsadvfm asdgj,fgashfgjsadgfa sfjsfjhsadgfBlaha hahahahahahsdjfjasdbcmhsadvfmasdgj, fgashfgjsadgfasfjsfjhsadgf`,
+    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. `,
     dateStart: new Date(2023, 7),
     dateEnd: new Date(),
     techStack: ["React", "NextJS", "Typescript", "MongoDB", "Vercel", "Framer Motion", "Material UI"],
@@ -26,7 +26,7 @@ export const ExperienceCardInfos: CardInfo[] = sortCardInfos([
   {
     title: "Paynalli Systems",
     subtitle: "Software Engineer Intern",
-    description: `Blah BLah BLah Blahah ahahahahahsdjfjasdbcmhsadvfm asdgj,fgashfgjsadgfa sfjsfjhsadgfBlaha hahahahahahsdjfjasdbcmhsadvfmasdgj, fgashfgjsadgfasfjsfjhsadgf`,
+    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. `,
     dateStart: new Date(2023, 4),
     dateEnd: new Date(2023, 7),
     techStack: ["React", "NextJS", "Material UI", "Tailwind", "Bootstrap"],
@@ -34,7 +34,7 @@ export const ExperienceCardInfos: CardInfo[] = sortCardInfos([
   {
     title: "Wood Mackenzie",
     subtitle: "Software Engineer Co-op",
-    description: `Blah BLah BLah Blahah ahahahahahsdjfjasdbcmhsadvfm asdgj,fgashfgjsadgfa sfjsfjhsadgfBlaha hahahahahahsdjfjasdbcmhsadvfmasdgj, fgashfgjsadgfasfjsfjhsadgf`,
+    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. `,
     dateStart: new Date(2023, 7),
     dateEnd: new Date(),
     techStack: ["Java Spring", "Javascript", "React", "AWS", "Postgres"],
@@ -44,14 +44,14 @@ export const ExperienceCardInfos: CardInfo[] = sortCardInfos([
 export const ProjectCardInfos: CardInfo[] = sortCardInfos([
   {
     title: "WiseWallet",
-    description: `Blah BLah BLah Blahah ahahahahahsdjfjasdbcmhsadvfm asdgj,fgashfgjsadgfa sfjsfjhsadgfBlaha hahahahahahsdjfjasdbcmhsadvfmasdgj, fgashfgjsadgfasfjsfjhsadgf`,
+    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. `,
     dateStart: new Date(2023, 2),
     dateEnd: undefined,
     techStack: ["React", "Chrome Storage API", "TypesSript"],
   },
   {
     title: "Mockple",
-    description: `Blah BLah BLah Blahah ahahahahahsdjfjasdbcmhsadvfm asdgj,fgashfgjsadgfa sfjsfjhsadgfBlaha hahahahahahsdjfjasdbcmhsadvfmasdgj, fgashfgjsadgfasfjsfjhsadgf`,
+    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. `,
     dateStart: new Date(2023, 6),
     dateEnd: undefined,
     techStack: ["Next.js", "React.js", "MongoDB", "JavaScript", "Stripe API", "Google OAuth", "Tailwind" ],

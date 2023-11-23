@@ -28,9 +28,13 @@ const StyledExperienceCardInfo = styled.div`
 const StyledTechStack = styled(Stack)`
   flex-direction: row;
   flex-wrap: wrap;
+  grid-area: 2 / 1 / 2 / 3;
+  justify-content: center;
+  margin: 5% 0 0 0;
 `;
 
 const StyledTechBadge = styled(Paper)`
+  width: min-content(50px);
   border-radius: 25px;
   padding: 1% 3%;
   margin: 1%;
@@ -66,6 +70,9 @@ const ExperienceContentCard: React.FC<ExperienceContentCardProps> = ({
     border-radius: 50px;
     transition: all 5s ease-out;
     box-shadow: 8px 10px 5px -1px rgba(0, 0, 0, 0.2);
+    &:hover {
+      cursor: pointer;
+    }
     ${(props) => {
       if (props.hovered === "hovered") {
         return `
@@ -110,7 +117,9 @@ const ExperienceContentCard: React.FC<ExperienceContentCardProps> = ({
   }
 
   return (
+    <>
     <StyledExperienceCard
+      className="hover-this"
       onMouseEnter={onMouseIn}
       onMouseLeave={onMouseOut}
       onMouseUp={onMouseUp}
@@ -131,6 +140,7 @@ const ExperienceContentCard: React.FC<ExperienceContentCardProps> = ({
         <StyledH4>{title}</StyledH4>
         <StyledH5>{subtitle}</StyledH5>
         <StyledBody1>{description}</StyledBody1>
+      </StyledExperienceCardInfo>
         <StyledTechStack>
           {techStack?.map((tech) => {
             return (
@@ -140,8 +150,8 @@ const ExperienceContentCard: React.FC<ExperienceContentCardProps> = ({
             );
           })}
         </StyledTechStack>
-      </StyledExperienceCardInfo>
     </StyledExperienceCard>
+    </>
   );
 };
 
