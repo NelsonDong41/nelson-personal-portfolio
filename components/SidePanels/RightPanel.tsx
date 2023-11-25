@@ -4,8 +4,8 @@ import RightPanelContent from "./PanelContent/RightPanelContent";
 import { Grid } from "@mui/material";
 
 const StyledRight = styled(Grid)`
-  width: 50vw;
-  left: 50vw;
+  width: 47vw;
+  left: 53vw;
   padding-right: 10vw;
   position: absolute;
   z-index: auto;

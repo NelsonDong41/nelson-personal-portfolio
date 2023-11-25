@@ -3,7 +3,7 @@ import { BreakPoints } from "@/styles/breakpoints";
 import LeftPanelContent from "./PanelContent/LeftPanelContent";
 
 const StyledLeft = styled.div`
-  width: 50vw;
+  width: 46vw;
   height: 100%;
   display: flex;
   flex-direction: column;

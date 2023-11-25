@@ -7,8 +7,8 @@
   cursor: none;
 }
 
-.hover-this {
-  transition: all 0.3s ease;
+*:hover {
+  cursor: none;
 }
 
 
@@ -16,32 +16,26 @@
   pointer-events: none;
   position: fixed;
   top: -20vh;
-  padding: 0.3rem;
+  padding: 0.5rem;
+  width: 5px;
+  height: 5px;
   background-color: #fff;
   border-radius: 50%;
   mix-blend-mode: difference;
   transition: transform 0.3s ease;
+  z-index: 9;
+  transform: translate(-50%, -50%);
+  box-shadow: 0px 0px 10px;
 }
 
-.cursorHovered {
-  transform: translate(-50%, -50%) scale(20);
+.cursorHovered0 {
+  transform: translate(-50%, -50%) scale(0.5);
 }
 
-@media(min-width: 900px) {
-  nav {
-        display: flex;
-        justify-content: space-around;
-  }
+.cursorHovered1 {
+  transform: translate(-50%, -50%) scale(4);
 }
 
-@media(max-width: 900px) {
-  nav {
-        top: 30%;
-  }
-
-  .hover-this {
-        width: 100%;
-        padding: 20px 0;
-        display: inline-block;
-  }
+.cursorHovered2 {
+  transform: translate(-50%, -50%) scale(10);
 }

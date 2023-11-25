@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import { Box, Paper, Stack, useTheme } from "@mui/material";
 import {
   StyledBody1,
+  StyledBody2,
   StyledH3,
   StyledH4,
   StyledH5,
@@ -11,6 +12,8 @@ import {
 import React, { MouseEvent, useContext, useState } from "react";
 import { HoveredCardContext } from "./ExperienceSectionContent";
 import { monthNames } from "@/util/constants";
+import Hoverable from "@/components/Util/Hoverable";
+import Image from "next/image";
 
 interface ExperienceContentCardProps {
   cardInfo: CardInfo;
@@ -23,6 +26,7 @@ interface ExperienceContentCardProps {
 const StyledExperienceCardInfo = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 2vh;
 `;
 
 const StyledTechStack = styled(Stack)`
@@ -36,19 +40,17 @@ const StyledTechStack = styled(Stack)`
 const StyledTechBadge = styled(Paper)`
   width: min-content(50px);
   border-radius: 25px;
-  padding: 1% 3%;
+  padding: 1% 2%;
   margin: 1%;
   color: inherit;
 `;
-
-const StyledLeft = styled.div``;
 
 const ExperienceContentCard: React.FC<ExperienceContentCardProps> = ({
   cardInfo,
   id,
   onMouseIn,
   onMouseOut,
-  onMouseUp
+  onMouseUp,
 }: ExperienceContentCardProps) => {
   let {
     title,
@@ -59,6 +61,7 @@ const ExperienceContentCard: React.FC<ExperienceContentCardProps> = ({
     link,
     techStack,
     image,
+    logo,
   } = cardInfo;
   const theme = useTheme();
 
@@ -67,27 +70,30 @@ const ExperienceContentCard: React.FC<ExperienceContentCardProps> = ({
     display: grid;
     grid-template-columns: 1fr 3fr;
     background-color: ${theme.palette.background.paper};
-    border-radius: 50px;
+    border-radius: 10px;
     transition: all 5s ease-out;
     box-shadow: 8px 10px 5px -1px rgba(0, 0, 0, 0.2);
-    &:hover {
-      cursor: pointer;
-    }
+    margin: 3%;
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
     ${(props) => {
       if (props.hovered === "hovered") {
         return `
-          transition: all 0.6s ease;
+          transition: all 1s ease;
           &:hover {
             background-color: ${theme.palette.background.paper};
             box-shadow: 15px 15px 10px -1px ${theme.palette.grey[700]};
+            transform: translate(-0.5%, -0.5%);
           }
           `;
-      }
-      else if (props.hovered === "notHovered") {
+      } else if (props.hovered === "notHovered") {
         return `
         transition: all 5s ease-out;
-        filter: blur(1px);
-        -webkit-filter: blur(1px);
+        filter: blur(4px);
+        -webkit-filter: blur(4px);
         box-shadow: 0px 0px;
         background-color: ${theme.palette.background.default};
         `;
@@ -116,31 +122,42 @@ const ExperienceContentCard: React.FC<ExperienceContentCardProps> = ({
       } ${dateEnd.getFullYear()}`;
   }
 
+  const StyledLeft = styled.div`
+    display: flex;
+    flex-direction: column;
+  `;
+
   return (
-    <>
-    <StyledExperienceCard
-      className="hover-this"
-      onMouseEnter={onMouseIn}
-      onMouseLeave={onMouseOut}
-      onMouseUp={onMouseUp}
-      id={id}
-      hovered={isCurrentHovered}
-    >
-      <StyledLeft>
-        {dateStartString}
-        {!!dateEnd && (
-          <>
-            {" "}
-            -<br></br>
-          </>
-        )}
-        {dateEndString}
-      </StyledLeft>
-      <StyledExperienceCardInfo>
-        <StyledH4>{title}</StyledH4>
-        <StyledH5>{subtitle}</StyledH5>
-        <StyledBody1>{description}</StyledBody1>
-      </StyledExperienceCardInfo>
+    <Hoverable scaleSize={2}>
+      <StyledExperienceCard
+        onMouseEnter={onMouseIn}
+        onMouseLeave={onMouseOut}
+        onMouseUp={onMouseUp}
+        id={id}
+        hovered={isCurrentHovered}
+      >
+        <StyledLeft>
+          <StyledBody2>
+            {dateStartString}
+            {!!dateEnd && (
+              <>
+                {" "}
+                -<br></br>
+              </>
+            )}
+            {dateEndString}
+          </StyledBody2>
+        </StyledLeft>
+        <StyledExperienceCardInfo>
+          <div style={{display: "flex", justifyContent: 'space-between'}}>
+            <div>
+              <StyledH3>{title}</StyledH3>
+              <StyledH6>{subtitle}</StyledH6>
+            </div>
+            {logo && <Image src={logo} alt = "" height="40" width="40"></Image>}
+          </div>
+          <StyledBody2>{description}</StyledBody2>
+        </StyledExperienceCardInfo>
         <StyledTechStack>
           {techStack?.map((tech) => {
             return (
@@ -150,8 +167,8 @@ const ExperienceContentCard: React.FC<ExperienceContentCardProps> = ({
             );
           })}
         </StyledTechStack>
-    </StyledExperienceCard>
-    </>
+      </StyledExperienceCard>
+    </Hoverable>
   );
 };
 

@@ -18,7 +18,12 @@ const RightPanelContent: React.FC = () => {
         <AboutSection id="about-section"/>
         <ExperienceSection id="experience-section"/>
         <ProjectSection id="project-section"/>
-        <ColorThemeButton />
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
     </StyledRight>
   );
 };

@@ -8,7 +8,7 @@ interface ExperienceSectionProps extends SectionProps {}
 const StyledClosingLink = styled.div`
   display: flex;
   align-self: flex-start;
-  margin: 2% 5%;
+  margin: 2% 6%;
 `;
 
 const ExperienceSection: React.FC<ExperienceSectionProps> = ({

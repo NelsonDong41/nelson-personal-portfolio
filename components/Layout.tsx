@@ -14,14 +14,12 @@ const StyledContainer = styled(Box)`
   }
 `;
 
-const Layout: React.FC<LayoutProps> = (props : LayoutProps) => {
+const Layout: React.FC<LayoutProps> = (props: LayoutProps) => {
   const children = props.children;
   return (
     <>
-      <StyledContainer>
-        {children}
-      </StyledContainer>
-      <div className = "cursor"></div>
+      <StyledContainer>{children}</StyledContainer>
+      <div className="cursor"></div>
     </>
   );
 };

@@ -7,6 +7,7 @@ type CardInfo = {
   link? : string,
   techStack? : string[],
   image? : string,
+  logo?: any
 }
 
 export default CardInfo

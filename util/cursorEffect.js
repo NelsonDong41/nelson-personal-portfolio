@@ -12,9 +12,8 @@ export default () => {
   window.addEventListener('mousemove', editCursor);
 }
 
-export const toggleCursorHover = () => {
+export const toggleCursorHover = (on, scale) => {
       const cursor = document.querySelector('.cursor')
-    console.log(cursor)
-    cursor?.classList.toggle('cursorHovered');
+    on ? cursor?.classList.add(`cursorHovered${scale}`) : cursor?.classList.remove(`cursorHovered${scale}`)
 }
 

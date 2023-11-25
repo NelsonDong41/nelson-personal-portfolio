@@ -1,8 +1,9 @@
-import { Button, MenuItem, Typography, useTheme } from "@mui/material";
+import { Box, Button, MenuItem, Typography, useTheme } from "@mui/material";
 import React from "react";
 import Link from "next/link";
 import { palette, PaletteProps, spacing, SpacingProps } from "@mui/system";
 import styled from "@emotion/styled";
+import { toggleCursorHover } from "@/util/cursorEffect";
 
 interface StyledTypographyProps {
   children?: React.ReactNode;
@@ -57,6 +58,12 @@ const StyledBody1: React.FC<StyledTypographyProps> = ({
   return <Typography variant="body1">{children}</Typography>;
 };
 
+const StyledBody2: React.FC<StyledTypographyProps> = ({
+  children,
+}: StyledTypographyProps) => {
+  return <Typography variant="body2">{children}</Typography>;
+};
+
 const StyledLinkBase = styled(Link)<PaletteProps & StyledTypographyProps>`
   ${palette};
 `;
@@ -66,7 +73,15 @@ export default function StyledLink({
   children,
 }: PaletteProps & StyledTypographyProps) {
   return (
-    <Button variant="text" style={{ padding: 0 }}>
+    <span
+      onMouseEnter={() => {
+        toggleCursorHover(true, 1);
+      }}
+      onMouseLeave={() => {
+        toggleCursorHover(false, 1);
+      }}
+      style={{ padding: 0, lineHeight: 'normal' }}
+    >
       <StyledLinkBase
         href={link || "404"}
         style={{ textDecoration: "none" }}
@@ -74,8 +89,8 @@ export default function StyledLink({
       >
         {children}
       </StyledLinkBase>
-    </Button>
+    </span>
   );
 }
 
-export { StyledH3, StyledBody1, StyledLink, StyledH4, StyledH5, StyledH6 };
+export { StyledH3, StyledBody1, StyledBody2, StyledLink, StyledH4, StyledH5, StyledH6 };

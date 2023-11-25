@@ -59,13 +59,28 @@ export const getDesignTokens = (mode: PaletteMode): ThemeOptions => ({
   typography: {
     h3: {
       fontFamily: "Spectral, serif",
-      fontWeight: 600,
-      fontSize: '42px',
+      fontWeight: 800,
+      fontSize: '22px',
+    },
+    h5: {
+      fontFamily: "Spectral, serif",
+      fontWeight: 800,
+      fontSize: '20px',
+    },
+    h6: {
+      fontFamily: "Spectral",
+      fontWeight: 800,
+      fontSize: '18px',
     },
     body1: {
       fontFamily: "Rubik, sans-serif",
       fontWeight: 400,
-      fontSize: '20px',
+      fontSize: '18px',
+    },
+    body2: {
+      fontFamily: "Rubik, sans-serif",
+      fontWeight: 400,
+      fontSize: '16px',
     },
     button: {
       textTransform: 'none',

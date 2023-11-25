@@ -6,56 +6,57 @@ import { useState } from "react";
 import React from "react";
 import styled from "@emotion/styled";
 import { toggleCursorHover } from "@/util/cursorEffect";
-
+import Hoverable from "@/components/Util/Hoverable";
 
 interface ExperienceSectionContentProps {
-  CardInfos: CardInfo[]
+  CardInfos: CardInfo[];
 }
 
 export const HoveredCardContext = React.createContext("");
 
-
 const StyledExperienceCardStack = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 4vh;
-  padding: 2%;
-`
+`;
 
-const ExperienceSectionContent: React.FC<ExperienceSectionContentProps> = ({CardInfos} : ExperienceSectionContentProps) => {
+const ExperienceSectionContent: React.FC<ExperienceSectionContentProps> = ({
+  CardInfos,
+}: ExperienceSectionContentProps) => {
   const theme = useTheme();
   const isMobileView = useMediaQuery(theme.breakpoints.down("laptop"));
 
   const [hoveredId, setHoveredId] = useState("");
-  
+
   const handleMouseIn = (event: React.MouseEvent) => {
     setHoveredId(event.currentTarget.id);
-    toggleCursorHover();
   };
 
   const handleMouseOut = () => {
     setHoveredId("");
-    toggleCursorHover();
   };
 
   return (
     <HoveredCardContext.Provider value={hoveredId}>
-      <div style={{ height: "100%", width: "100%"}}>
+      <div style={{ height: "100%", width: "100%" }}>
         {isMobileView && <StyledH3>Experience</StyledH3>}
         <StyledExperienceCardStack>
-          {CardInfos
-            .map((currentCardInfo: CardInfo) => {
-              return (
+          {CardInfos.map((currentCardInfo: CardInfo) => {
+            return (
+              <Hoverable key={currentCardInfo.title}>
                 <ExperienceContentCard
                   key={currentCardInfo.title}
                   cardInfo={currentCardInfo}
                   id={currentCardInfo.title}
                   onMouseIn={handleMouseIn}
                   onMouseOut={handleMouseOut}
-                  onMouseUp={(e) => e.nativeEvent.button === 0 && window.open(currentCardInfo.link || "404", "_blank") }
+                  onMouseUp={(e) =>
+                    e.nativeEvent.button === 0 &&
+                    window.open(currentCardInfo.link || "404", "_blank")
+                  }
                 />
-              );
-            })}
+              </Hoverable>
+            );
+          })}
         </StyledExperienceCardStack>
       </div>
     </HoveredCardContext.Provider>
