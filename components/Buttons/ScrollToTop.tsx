@@ -2,11 +2,11 @@ import { toggleCursorHover } from "@/util/cursorEffect";
 import { KeyboardDoubleArrowUp } from "@mui/icons-material";
 import { Box, Button } from "@mui/material";
 import { animateScroll as scroll } from "react-scroll";
-import Hoverable from "../Util/Hoverable";
+import Interactable from "../Util/Interactable";
 
 export default function ScrollToTop() {
   return (
-    <Hoverable>
+    <Interactable>
       <Button
         variant="contained"
         sx={{
@@ -17,9 +17,10 @@ export default function ScrollToTop() {
           width: "5vh",
         }}
         onClick={() => scroll.scrollToTop()}
+        color = "success"
       >
         <KeyboardDoubleArrowUp />
       </Button>
-    </Hoverable>
+    </Interactable>
   );
 }

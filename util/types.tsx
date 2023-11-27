@@ -1,4 +1,4 @@
-type CardInfo = {
+export type CardInfo = {
   title : string,
   subtitle? : string,
   description: string,
@@ -10,4 +10,9 @@ type CardInfo = {
   logo?: any
 }
 
-export default CardInfo
+export type Social = {
+  icon: any;
+  link: string;
+  copyToClipBoard?: boolean;
+  name: string;
+}

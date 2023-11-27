@@ -10,6 +10,7 @@ export default () => {
   };
   
   window.addEventListener('mousemove', editCursor);
+  window.addEventListener('blur', toggleCursorHover(1));
 }
 
 export const toggleCursorHover = (on, scale) => {

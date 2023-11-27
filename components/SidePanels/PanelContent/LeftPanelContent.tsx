@@ -6,6 +6,7 @@ import ProfilePic from "@/components/images/ProfilePic";
 import styled from "@emotion/styled";
 import Intro from "../../Sections/Intro/Intro"
 import Socials from "@/components/Sections/Socials/Socials";
+import pdf from '../../../public/hackBeanPot.png';
 
 const StyledLeftPanelContent = styled.div`
   display: flex;

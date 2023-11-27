@@ -1,4 +1,4 @@
-import CardInfo from "@/util/types";
+import {CardInfo} from "@/util/types";
 import styled from "@emotion/styled";
 import { Box, Paper, Stack, useTheme } from "@mui/material";
 import {
@@ -12,7 +12,7 @@ import {
 import React, { MouseEvent, useContext, useState } from "react";
 import { HoveredCardContext } from "./ExperienceSectionContent";
 import { monthNames } from "@/util/constants";
-import Hoverable from "@/components/Util/Hoverable";
+import Interactable from "@/components/Util/Interactable";
 import Image from "next/image";
 
 interface ExperienceContentCardProps {
@@ -128,7 +128,7 @@ const ExperienceContentCard: React.FC<ExperienceContentCardProps> = ({
   `;
 
   return (
-    <Hoverable scaleSize={2}>
+    <Interactable scaleSize={2}>
       <StyledExperienceCard
         onMouseEnter={onMouseIn}
         onMouseLeave={onMouseOut}
@@ -168,7 +168,7 @@ const ExperienceContentCard: React.FC<ExperienceContentCardProps> = ({
           })}
         </StyledTechStack>
       </StyledExperienceCard>
-    </Hoverable>
+    </Interactable>
   );
 };
 

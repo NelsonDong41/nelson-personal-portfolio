@@ -1,12 +1,11 @@
 import { useMediaQuery, useTheme } from "@mui/material";
 import { StyledH3 } from "../SectionTypography";
 import ExperienceContentCard from "./ContentCard";
-import CardInfo from "@/util/types";
+import {CardInfo} from "@/util/types";
 import { useState } from "react";
 import React from "react";
 import styled from "@emotion/styled";
-import { toggleCursorHover } from "@/util/cursorEffect";
-import Hoverable from "@/components/Util/Hoverable";
+import Interactable from "@/components/Util/Interactable";
 
 interface ExperienceSectionContentProps {
   CardInfos: CardInfo[];
@@ -42,7 +41,7 @@ const ExperienceSectionContent: React.FC<ExperienceSectionContentProps> = ({
         <StyledExperienceCardStack>
           {CardInfos.map((currentCardInfo: CardInfo) => {
             return (
-              <Hoverable key={currentCardInfo.title}>
+              <Interactable key={currentCardInfo.title}>
                 <ExperienceContentCard
                   key={currentCardInfo.title}
                   cardInfo={currentCardInfo}
@@ -54,7 +53,7 @@ const ExperienceSectionContent: React.FC<ExperienceSectionContentProps> = ({
                     window.open(currentCardInfo.link || "404", "_blank")
                   }
                 />
-              </Hoverable>
+              </Interactable>
             );
           })}
         </StyledExperienceCardStack>

@@ -1,35 +1,15 @@
-import { Box, Button, Grid, Paper, Stack } from "@mui/material";
+import { Box, Button, Grid, Paper, Stack, useTheme } from "@mui/material";
 import { Link } from "react-scroll";
 import { sectionNames } from "@/util/constants";
 import "./SelectSectionsButton.module.css";
 import styled from "@emotion/styled";
 import { useState } from "react";
-import Hoverable from "../Util/Hoverable";
+import Interactable from "../Util/Interactable";
 import { StyledH3 } from "../Sections/SectionTypography";
-
-const NavLinks = styled(Link)`
-  display: flex;
-  align-items: center;
-  color: inherit;
-  opacity: 0.6;
-  justify-content: center;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  &.active {
-    opacity: 1;
-  }
-
-  &.active > div {
-    background-color: red;
-    width: 200px;
-  }
-  gap: 2vw;
-`;
 
 const StyledSpan = styled(Paper)`
   height: 1vh;
-  width: 150px;
+  width: 125px;
   display: inline-block;
   transition: all 500ms;
 `;
@@ -41,12 +21,33 @@ const StyledStack = styled(Stack)`
 `;
 
 export default function SelectSectionsButton() {
+  const theme = useTheme()
+  const NavLinks = styled(Link)`
+    display: flex;
+    align-items: center;
+    color: inherit;
+    opacity: 0.6;
+    justify-content: center;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    &.active {
+      opacity: 1;
+    }
+
+    &.active > div {
+      background-color: ${theme.palette.info.main};
+      width: 150px;
+    }
+    gap: 2vw;
+  `;
+
   return (
     <StyledStack>
       {sectionNames.map((sectionName) => {
         const cleanedID = sectionName.toLowerCase().trim() + "-section";
         return (
-          <Hoverable key={cleanedID}>
+          <Interactable key={cleanedID}>
             <NavLinks
               key={cleanedID}
               activeClass="active"
@@ -60,7 +61,7 @@ export default function SelectSectionsButton() {
               <StyledH3>{sectionName}</StyledH3>
               <StyledSpan />
             </NavLinks>
-          </Hoverable>
+          </Interactable>
         );
       })}
     </StyledStack>

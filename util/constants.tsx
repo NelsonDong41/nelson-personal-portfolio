@@ -1,7 +1,10 @@
-import CardInfo from "./types";
+import {CardInfo, Social} from "./types";
 import HackBeanpotLogo from '../public/hackBeanPot.png'
 import PaynalliSystemsLogo from '../public/paynalliSystems.png'
 import WoodMacLogo from '../public/woodMacLogo.png'
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import EmailIcon from "@mui/icons-material/Email";
 
 export const sectionNames = ["About", "Experience", "Project"];
 
@@ -70,3 +73,22 @@ export const monthNames = [
   "July", "August", "September",  
   "October", "November", "December"
 ];
+
+export const SocialsList : Social[] = [
+  {
+    name: "Github",
+    icon: GitHubIcon,
+    link: "www.github.com/nelsondong41"
+  },
+  {
+    name: "LinkedIn",
+    icon: LinkedInIcon,
+    link: "www.linkedin.com/in/nelson-dong"
+  },
+  {
+    name: "Email",
+    icon: EmailIcon,
+    link: "",
+    copyToClipBoard: true
+  },
+]

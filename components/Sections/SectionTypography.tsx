@@ -1,7 +1,6 @@
-import { Box, Button, MenuItem, Typography, useTheme } from "@mui/material";
+import { Link, Typography } from "@mui/material";
 import React from "react";
-import Link from "next/link";
-import { palette, PaletteProps, spacing, SpacingProps } from "@mui/system";
+import { palette, PaletteProps } from "@mui/system";
 import styled from "@emotion/styled";
 import { toggleCursorHover } from "@/util/cursorEffect";
 
