@@ -17,7 +17,7 @@ export const getDesignTokens = (mode: PaletteMode): ThemeOptions => ({
           accent: "#be7a0e",
 
           background: {
-            default: "#fdf3e3"
+            default: "#fdf3e3",
           },
 
           text: {
@@ -26,30 +26,30 @@ export const getDesignTokens = (mode: PaletteMode): ThemeOptions => ({
         }
       : {
           background: {
-            default: '#011627',
-            paper: '#0b253a',
+            default: "#011627",
+            paper: "#0b253a",
           },
           text: {
-            primary: '#d6deeb',
-            secondary: '#5f7e97',
+            primary: "#d6deeb",
+            secondary: "#5f7e97",
           },
           action: {
-            active: '#13344f',
-            hover: '#697098',
+            active: "#13344f",
+            hover: "#697098",
           },
           primary: {
-            main: '#084d81',
-            light: '#5f7e9790',
-            contrastText: '#FFFFFF',
+            main: "#084d81",
+            light: "#5f7e9790",
+            contrastText: "#FFFFFF",
           },
           secondary: {
-            main: '#7e57c2',
+            main: "#7e57c2",
           },
           error: {
-            main: '#01111d',
+            main: "#AA0000",
           },
           warning: {
-            main: '#0e293f',
+            main: "#0e293f",
           },
         }),
   },
@@ -57,36 +57,41 @@ export const getDesignTokens = (mode: PaletteMode): ThemeOptions => ({
     values: BreakPoints,
   },
   typography: {
+    h1: {
+      fontFamily: "Spectral, serif",
+      fontWeight: 800,
+      fontSize: "50px",
+    },
     h3: {
       fontFamily: "Spectral, serif",
       fontWeight: 800,
-      fontSize: '22px',
+      fontSize: "22px",
     },
     h5: {
       fontFamily: "Spectral, serif",
       fontWeight: 800,
-      fontSize: '20px',
+      fontSize: "20px",
     },
     h6: {
       fontFamily: "Spectral",
       fontWeight: 800,
-      fontSize: '18px',
+      fontSize: "18px",
     },
     body1: {
       fontFamily: "Rubik, sans-serif",
       fontWeight: 400,
-      fontSize: '18px',
+      fontSize: "18px",
     },
     body2: {
       fontFamily: "Rubik, sans-serif",
       fontWeight: 400,
-      fontSize: '16px',
+      fontSize: "16px",
     },
     button: {
-      textTransform: 'none',
-      fontFamily: 'inherit',
-      fontSize: 'inherit',
+      textTransform: "none",
+      fontFamily: "inherit",
+      fontSize: "inherit",
       margin: 0,
-    }
+    },
   },
 });

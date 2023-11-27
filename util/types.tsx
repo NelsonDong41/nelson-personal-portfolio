@@ -7,7 +7,8 @@ export type CardInfo = {
   link? : string,
   techStack? : string[],
   image? : string,
-  logo?: any
+  logo?: any,
+  createdAt?: string,
 }
 
 export type Social = {

@@ -18,11 +18,8 @@ export default function Signature() {
           initial={{ pathLength: 0 }}
           animate={{ pathLength: 1 }}
           transition={{
-            duration: 2,
-            ease: "easeInOut",
-            repeat: Infinity,
-            repeatType: "reverse",
-            repeatDelay: 1,
+            duration: 4,
+            ease: "easeInOut"
           }}
           strokeWidth={4}
           strokeDasharray="0 1"
@@ -34,11 +31,8 @@ export default function Signature() {
           initial={{ pathLength: 0 }}
           animate={{ pathLength: 1 }}
           transition={{
-            duration: 2,
-            ease: "easeInOut",
-            repeat: Infinity,
-            repeatType: "reverse",
-            repeatDelay: 1,
+            duration: 4,
+            ease: "easeInOut"
           }}
           strokeWidth={4}
           strokeDasharray="0 1"
@@ -50,11 +44,8 @@ export default function Signature() {
           initial={{ pathLength: 0 }}
           animate={{ pathLength: 1 }}
           transition={{
-            duration: 2,
-            ease: "easeInOut",
-            repeat: Infinity,
-            repeatType: "reverse",
-            repeatDelay: 1,
+            duration: 4,
+            ease: "easeInOut"
           }}
           strokeWidth={4}
           strokeDasharray="0 1"
@@ -66,11 +57,8 @@ export default function Signature() {
           initial={{ pathLength: 0 }}
           animate={{ pathLength: 1 }}
           transition={{
-            duration: 2,
-            ease: "easeInOut",
-            repeat: Infinity,
-            repeatType: "reverse",
-            repeatDelay: 1,
+            duration: 4,
+            ease: "easeInOut"
           }}
           strokeWidth={4}
           strokeDasharray="0 1"
@@ -82,11 +70,8 @@ export default function Signature() {
           initial={{ pathLength: 0 }}
           animate={{ pathLength: 1 }}
           transition={{
-            duration: 2,
-            ease: "easeInOut",
-            repeat: Infinity,
-            repeatType: "reverse",
-            repeatDelay: 1,
+            duration: 4,
+            ease: "easeInOut"
           }}
           strokeWidth={4}
           strokeDasharray="0 1"
@@ -98,11 +83,8 @@ export default function Signature() {
           initial={{ pathLength: 0 }}
           animate={{ pathLength: 1 }}
           transition={{
-            duration: 2,
-            ease: "easeInOut",
-            repeat: Infinity,
-            repeatType: "reverse",
-            repeatDelay: 1,
+            duration: 4,
+            ease: "easeInOut"
           }}
           strokeWidth={4}
           strokeDasharray="0 1"

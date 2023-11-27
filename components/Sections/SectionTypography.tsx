@@ -11,6 +11,16 @@ interface StyledTypographyProps {
   target?: any;
 }
 
+const StyledH1: React.FC<StyledTypographyProps> = ({
+  children,
+}: StyledTypographyProps) => {
+  return (
+    <Typography variant="h1" sx={{ overflow: "hidden" }}>
+      {children}
+    </Typography>
+  );
+};
+
 const StyledH3: React.FC<StyledTypographyProps> = ({
   children,
 }: StyledTypographyProps) => {
@@ -92,4 +102,4 @@ export default function StyledLink({
   );
 }
 
-export { StyledH3, StyledBody1, StyledBody2, StyledLink, StyledH4, StyledH5, StyledH6 };
+export {StyledH1, StyledH3, StyledBody1, StyledBody2, StyledLink, StyledH4, StyledH5, StyledH6 };

@@ -9,6 +9,7 @@ export default function Document() {
         <body>
           <Main />
           <NextScript/>
+          <div className="cursor"></div>
         </body>
       </Html>
     </>

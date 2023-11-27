@@ -29,7 +29,7 @@ const StyledExperienceCardInfo = styled.div`
   gap: 2vh;
 `;
 
-const StyledTechStack = styled(Stack)`
+export const StyledTechStack = styled(Stack)`
   flex-direction: row;
   flex-wrap: wrap;
   grid-area: 2 / 1 / 2 / 3;
@@ -37,7 +37,7 @@ const StyledTechStack = styled(Stack)`
   margin: 5% 0 0 0;
 `;
 
-const StyledTechBadge = styled(Paper)`
+export const StyledTechBadge = styled(Paper)`
   width: min-content(50px);
   border-radius: 25px;
   padding: 1% 2%;
@@ -110,6 +110,7 @@ const ExperienceContentCard: React.FC<ExperienceContentCardProps> = ({
   const dateStartString = `${
     monthNames[dateStart?.getMonth()]
   } ${dateStart?.getFullYear()}`;
+
   let dateEndString;
   if (!dateEnd) {
     dateEndString = "";

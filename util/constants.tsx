@@ -6,20 +6,15 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import EmailIcon from "@mui/icons-material/Email";
 
-export const sectionNames = ["About", "Experience", "Project"];
+export const sectionNames = ["About", "Experiences", "Projects", "Contact"];
 
 const sortCardInfos = (CardInfos : CardInfo[]) => {
   return CardInfos.sort((a, b) => {
-    if (!a.dateEnd) {
-      return -1;
-    }
-    if (!b.dateEnd) {
-      return 1;
-    }
-    return b.dateEnd.getTime() - b.dateEnd.getTime();
+    return (b.dateEnd?.getTime() || b.dateStart.getTime()) - (a.dateEnd?.getTime()  || a.dateStart.getTime());
   })
 }
 
+export const EXPERIENCE_DISPLAYED_COUNT = 3;
 export const ExperienceCardInfos: CardInfo[] = sortCardInfos([
   {
     title: "HackBeanpot",
@@ -50,13 +45,25 @@ export const ExperienceCardInfos: CardInfo[] = sortCardInfos([
   },
 ]);
 
+export const PROJECT_DISPLAYED_COUNT = 3;
 export const ProjectCardInfos: CardInfo[] = sortCardInfos([
+  {
+    title: "Portfolio Website",
+    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`,
+    dateStart: new Date(2023, 11),
+    dateEnd: undefined,
+    techStack: ["NextJs", "Styled Components", "TypeSript", "JavaScript"],
+    createdAt: "Personal",
+    link: "/"
+  },
   {
     title: "WiseWallet",
     description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`,
     dateStart: new Date(2023, 2),
     dateEnd: undefined,
-    techStack: ["React", "Chrome Storage API", "TypesSript"],
+    techStack: ["React", "Chrome Storage API", "TypeSript", "JavaScript"],
+    createdAt: "Hackbeanpot",
+    link: "https://devpost.com/software/wisewallet-2iqrl8"
   },
   {
     title: "Mockple",
@@ -64,6 +71,31 @@ export const ProjectCardInfos: CardInfo[] = sortCardInfos([
     dateStart: new Date(2023, 6),
     dateEnd: undefined,
     techStack: ["Next.js", "React.js", "MongoDB", "JavaScript", "Stripe API", "Google OAuth", "Tailwind" ],
+    createdAt: "Personal"
+  },
+  {
+    title: "Noods. Ramen App",
+    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`,
+    dateStart: new Date(2022, 12),
+    dateEnd: undefined,
+    techStack: ["Python", "Flask", "REST API", "MySQL", "Docker", "Ngrok" ],
+    createdAt: "Northeastern"
+  },
+  {
+    title: "Forecast Finder App",
+    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`,
+    dateStart: new Date(2022, 9),
+    dateEnd: undefined,
+    techStack: ["JavaScript", "HTML/CSS", "APIs"],
+    createdAt: "Personal"
+  },
+  {
+    title: "Todo App",
+    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`,
+    dateStart: new Date(2022, 7),
+    dateEnd: new Date(2022, 8),
+    techStack: ["JavaScript", "HTML", "CSS"],
+    createdAt: "Personal"
   }
 ]);
 
