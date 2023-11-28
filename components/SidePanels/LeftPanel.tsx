@@ -16,6 +16,8 @@ const StyledLeft = styled.div`
     position: relative;
     width: 100%;
     padding-left: 0;
+    overflow-y: hidden;
+    padding: 10%;
   }
 `;
 

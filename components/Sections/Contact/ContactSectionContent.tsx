@@ -1,18 +1,8 @@
-import {
-  Box,
-  Button,
-  FormControl,
-  FormHelperText,
-  FormLabel,
-  TextField,
-  Typography,
-  useMediaQuery,
-  useTheme,
-} from "@mui/material";
-import { StyledH3, StyledLink, StyledBody1 } from "../SectionTypography";
+import { Box, Button, TextField, Typography } from "@mui/material";
 import styled from "@emotion/styled";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import axios from "axios";
 
 const StyledForm = styled.form`
   padding: 5%;
@@ -28,60 +18,77 @@ const ContactSectionContent: React.FC = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = async (data) => {
-    console.log(data);
-    // submit code
-    // if(response.ok) {
-    setFormValues({});
-    setSubmitted(true);
-    // }
+  const onSubmit = async (data: any) => {
+    const response = await axios.post("/api/contactMe", data);
+
+    if (response.data.message) {
+      alert("ok");
+      setFormValues({});
+      setSubmitted(true);
+    }
   };
 
   useEffect(() => {
     setErrorMessages(errors);
   }, [errors]);
 
+  useEffect(() => {
+    console.log(formValues);
+  }, [formValues]);
+
   return (
     <Box
       component="form"
       onSubmit={handleSubmit(onSubmit)}
       sx={{
-        mt: 1,
-        height: "100vh",
+        margin: "3%",
+        height: "55vh",
         display: "flex",
-        justifyContent: "center",
+        justifyContent: "flex-start",
         alignItems: "center",
         flexDirection: "column",
       }}
     >
-      <TextField
-        margin="normal"
-        {...register("firstName", { required: true })}
-        error={!!errors.firstName}
-        label="First Name"
-        variant="filled"
-        fullWidth
-        helperText={
-          "message" in (errorMessages?.firstName || {})
-            ? `${
-                errorMessages?.firstName.message ||
-                "Please enter your first name!"
-              }`
-            : ""
-        }
-        value={formValues.firstName}
-        onChange={(e) =>
-          setFormValues((prev: any) => ({ ...prev, firstName: e.target.value }))
-        }
-      />
-      <TextField
-        margin="normal"
-        {...register("lastName", { required: false })}
-        error={!!errors.lastName}
-        label="Last Name"
-        variant="filled"
-        fullWidth
-      />
+      <div style={{width: "100%", display: "flex", gap: "2vw"}}>
+        <TextField
+          fullWidth
+          margin="normal"
+          {...register("firstName", { required: true })}
+          error={!!errors.firstName}
+          label="First Name"
+          variant="filled"
+          helperText={
+            "message" in (errorMessages?.firstName || {})
+              ? `${
+                  errorMessages?.firstName.message ||
+                  "Please enter your first name!"
+                }`
+              : ""
+          }
+          value={formValues.firstName || ""}
+          onChange={(e) => {
+            setFormValues((prev: any) => ({
+              ...prev,
+              firstName: e.target.value,
+            }));
+          }}
+        />
+        <TextField
+          fullWidth
+          margin="normal"
+          {...register("lastName", { required: false })}
+          error={!!errors.lastName}
+          label="Last Name"
+          variant="filled"
+          value={formValues.lastName || ""}
+          onChange={(e) => {
+            setFormValues((prev: any) => ({
+              ...prev,
+              lastName: e.target.value,
+            }));
+          }}
+        />
+      </div>
       <TextField
         margin="normal"
         {...register("email", { required: true })}
@@ -97,6 +104,10 @@ const ContactSectionContent: React.FC = () => {
               }`
             : ""
         }
+        value={formValues.email || ""}
+        onChange={(e) => {
+          setFormValues((prev: any) => ({ ...prev, email: e.target.value }));
+        }}
       />
       <TextField
         margin="normal"
@@ -115,9 +126,13 @@ const ContactSectionContent: React.FC = () => {
               }`
             : ""
         }
+        value={formValues.message || ""}
+        onChange={(e) => {
+          setFormValues((prev: any) => ({ ...prev, message: e.target.value }));
+        }}
       />
 
-      <Button type="submit" variant="contained">
+      <Button type="submit" variant="contained" style={{marginTop: "3vh"}}>
         Send Message
       </Button>
 

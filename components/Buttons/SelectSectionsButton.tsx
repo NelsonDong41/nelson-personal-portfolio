@@ -22,6 +22,7 @@ const StyledStack = styled(Stack)`
 
 export default function SelectSectionsButton() {
   const theme = useTheme()
+
   const NavLinks = styled(Link)`
     display: flex;
     align-items: center;
@@ -31,6 +32,7 @@ export default function SelectSectionsButton() {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    gap: 2vw;
     &.active {
       opacity: 1;
     }
@@ -39,7 +41,6 @@ export default function SelectSectionsButton() {
       background-color: ${theme.palette.info.main};
       width: 150px;
     }
-    gap: 2vw;
   `;
 
   return (
