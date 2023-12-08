@@ -1,4 +1,4 @@
-import { PROJECT_DISPLAYED_COUNT, ProjectCardInfos } from "@/util/constants";
+import { PROJECT_DISPLAYED_COUNT, ProjectCardInfos } from "@/lib/constants";
 import ExperienceSectionContent from "../Experience/ExperienceSectionContent";
 import Section, { SectionProps } from "../Section";
 import styled from "@emotion/styled";

@@ -2,7 +2,7 @@ import { Link, Typography } from "@mui/material";
 import React from "react";
 import { palette, PaletteProps } from "@mui/system";
 import styled from "@emotion/styled";
-import { toggleCursorHover } from "@/util/cursorEffect";
+import { toggleCursorHover } from "@/lib/cursorEffect";
 
 interface StyledTypographyProps {
   children?: React.ReactNode;

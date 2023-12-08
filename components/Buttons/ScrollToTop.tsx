@@ -1,4 +1,4 @@
-import { toggleCursorHover } from "@/util/cursorEffect";
+import { toggleCursorHover } from "@/lib/cursorEffect";
 import { KeyboardDoubleArrowUp } from "@mui/icons-material";
 import { Box, Button } from "@mui/material";
 import { animateScroll as scroll } from "react-scroll";

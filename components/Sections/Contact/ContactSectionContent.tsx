@@ -3,10 +3,11 @@ import styled from "@emotion/styled";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import {z} from "zod";
+import {zodResolver} from '@hookform/resolvers/zod'
+import { ContactFormSchema } from "@/lib/types";
 
-const StyledForm = styled.form`
-  padding: 5%;
-`;
+export type ContactFormInputs = z.infer<typeof ContactFormSchema>
 
 const ContactSectionContent: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -15,17 +16,27 @@ const ContactSectionContent: React.FC = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
-  } = useForm();
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm<ContactFormInputs>({
+    resolver: zodResolver(ContactFormSchema)
+  });
 
   const onSubmit = async (data: any) => {
-    const response = await axios.post("/api/contactMe", data);
+    try {
 
-    if (response.data.message) {
-      alert("ok");
-      setFormValues({});
-      setSubmitted(true);
+      const response = await axios.post("/api/contactMe", data);
+      if (response.data.message) {
+        alert(response.data.message);
+        setFormValues({});
+        setSubmitted(true);
+        reset()
+        return;
+      }
+    } catch (err) {
+      console.log(err)
     }
+
   };
 
   useEffect(() => {

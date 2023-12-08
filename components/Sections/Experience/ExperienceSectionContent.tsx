@@ -1,7 +1,7 @@
 import { useMediaQuery, useTheme } from "@mui/material";
 import { StyledH3 } from "../SectionTypography";
 import ExperienceContentCard from "./ContentCard";
-import {CardInfo} from "@/util/types";
+import {CardInfo} from "@/lib/types";
 import { useState } from "react";
 import React from "react";
 import styled from "@emotion/styled";

@@ -1,4 +1,4 @@
-import { toggleCursorHover } from "@/util/cursorEffect";
+import { toggleCursorHover } from "@/lib/cursorEffect";
 
 interface InteractableProps {
   children: React.ReactNode;

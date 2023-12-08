@@ -1,4 +1,4 @@
-import {CardInfo} from "@/util/types";
+import {CardInfo} from "@/lib/types";
 import styled from "@emotion/styled";
 import { Box, Paper, Stack, useTheme } from "@mui/material";
 import {
@@ -11,7 +11,7 @@ import {
 } from "../SectionTypography";
 import React, { MouseEvent, useContext, useState } from "react";
 import { HoveredCardContext } from "./ExperienceSectionContent";
-import { monthNames } from "@/util/constants";
+import { monthNames } from "@/lib/constants";
 import Interactable from "@/components/Util/Interactable";
 import Image from "next/image";
 

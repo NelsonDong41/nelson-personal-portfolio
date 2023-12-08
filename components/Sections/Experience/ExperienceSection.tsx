@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import Section, { SectionProps } from "../Section";
 import ExperienceSectionContent from "./ExperienceSectionContent";
-import { EXPERIENCE_DISPLAYED_COUNT, ExperienceCardInfos } from "@/util/constants";
+import { EXPERIENCE_DISPLAYED_COUNT, ExperienceCardInfos } from "@/lib/constants";
 import { useState } from "react";
 import Interactable from "@/components/Util/Interactable";
 import { useTheme } from "@mui/material";

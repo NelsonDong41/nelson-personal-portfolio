@@ -10,9 +10,9 @@ import type { AppProps } from "next/app";
 import "@/styles/globals.css";
 import { useMemo, useState, createContext, useEffect } from "react";
 import { getDesignTokens } from "@/styles/theme";
-import { ColorModeContent } from "@/types";
-import CursorEffect from "../util/cursorEffect";
+import CursorEffect from "@/lib/cursorEffect";
 import { useRouter } from "next/router";
+import { ColorModeContent } from "@/lib/types";
 
 export const ColorModeContext = createContext<ColorModeContent>({
   toggleColorMode: () => {},

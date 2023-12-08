@@ -1,6 +1,6 @@
 import { Box, Button, Grid, Paper, Stack, useTheme } from "@mui/material";
 import { Link } from "react-scroll";
-import { sectionNames } from "@/util/constants";
+import { sectionNames } from "@/lib/constants";
 import "./SelectSectionsButton.module.css";
 import styled from "@emotion/styled";
 import { useState } from "react";
