@@ -1,13 +1,14 @@
-import { Box, Button, TextField, Typography } from "@mui/material";
-import styled from "@emotion/styled";
+import { Box, Button, Snackbar, TextField, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import {z} from "zod";
-import {zodResolver} from '@hookform/resolvers/zod'
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { ContactFormSchema } from "@/lib/types";
+import { toast } from "sonner";
 
-export type ContactFormInputs = z.infer<typeof ContactFormSchema>
+export type ContactFormInputs = z.infer<typeof ContactFormSchema>;
+const SNACKBAR_TIMER = 5000;
 
 const ContactSectionContent: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -19,33 +20,29 @@ const ContactSectionContent: React.FC = () => {
     reset,
     formState: { errors, isSubmitting },
   } = useForm<ContactFormInputs>({
-    resolver: zodResolver(ContactFormSchema)
+    resolver: zodResolver(ContactFormSchema),
   });
 
   const onSubmit = async (data: any) => {
     try {
-
       const response = await axios.post("/api/contactMe", data);
       if (response.data.message) {
-        alert(response.data.message);
-        setFormValues({});
         setSubmitted(true);
-        reset()
+        setTimeout(() => {
+          setSubmitted(false);
+        }, SNACKBAR_TIMER);
+        // setFormValues({});
+        // reset();
         return;
       }
     } catch (err) {
-      console.log(err)
+      toast.error("Something went wrong when sending message!");
     }
-
   };
 
   useEffect(() => {
     setErrorMessages(errors);
   }, [errors]);
-
-  useEffect(() => {
-    console.log(formValues);
-  }, [formValues]);
 
   return (
     <Box
@@ -60,7 +57,7 @@ const ContactSectionContent: React.FC = () => {
         flexDirection: "column",
       }}
     >
-      <div style={{width: "100%", display: "flex", gap: "2vw"}}>
+      <div style={{ width: "100%", display: "flex", gap: "2vw" }}>
         <TextField
           fullWidth
           margin="normal"
@@ -143,11 +140,17 @@ const ContactSectionContent: React.FC = () => {
         }}
       />
 
-      <Button type="submit" variant="contained" style={{marginTop: "3vh"}}>
+      <Button type="submit" variant="contained" style={{ marginTop: "3vh" }}>
         Send Message
       </Button>
 
-      {submitted && <Typography variant="body1">Thank you!</Typography>}
+      <Snackbar
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
+        open={submitted}
+        // onClose={handleClose}
+        message="I love snacks"
+        // key={vertical + horizontal}
+      />
     </Box>
   );
 };

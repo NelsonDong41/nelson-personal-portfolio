@@ -4,6 +4,7 @@ import sendMail from "../../lib/emails";
 import { ContactFormSchema } from '@/lib/types';
 import { Resend } from 'resend';
 import { CreateEmailResponse } from 'resend/build/src/emails/interfaces';
+import { ContactFormTemplate } from '@/components/ContactFormTemplate/ContactFormTemplate';
 
 const resend = new Resend(process.env.RESEND_EMAIL_API);
 
@@ -20,15 +21,20 @@ const PostHandler = async (req: NextApiRequest, res: NextApiResponse<ResponseDat
       from: `onboarding@resend.dev`,
       to: 'nelsondong158@gmail.com',
       subject: `${firstName} ${lastName} sent an email - ${email}`,
-      html: `<p>${email} - ${message}</p>`
+      text: `Name: ${firstName} ${lastName}\nEmail: ${email}\nMessage: ${message}`,
+      react: ContactFormTemplate({firstName, lastName, email, message})
     });
 
     if(response.error) {
       return res.status(400).json({message: `Unable to send email: Error: ${response.error.name} - ${response.error.message}`});
+    } else {
+      return res.status(200).json({message: `Email sent from ${email}!`});
     }
-    return res.status(200).json({message: `Email sent from ${email}!`});
   }
-  return res.status(400).json({message: `Contact Form is not safe! Validation for email failed ${result.error.message}`});
+
+  if(result.error) {
+    return res.status(400).json({message: `Contact Form is not safe! Validation for email failed`});
+  }
 }
 
 export default async function handler(
