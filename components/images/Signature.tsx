@@ -11,8 +11,8 @@ export default function Signature() {
         xmlns="http://www.w3.org/2000/svg"
         id="canvas"
         viewBox="518.909 327.983 620.869 205.299"
-        width={"25vw"}
-        height={"15vh"}
+        width={"15vw"}
+        height={"10vh"}
         style={{
           minWidth : "250px",
           minHeight : "125px",

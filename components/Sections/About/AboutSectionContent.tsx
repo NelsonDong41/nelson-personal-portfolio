@@ -35,8 +35,8 @@ const AboutSectionContent: React.FC = () => {
         {""}
         <br />
         <br />
-        While I am not developing, I like to dabble in Rock Climbing,
-        Volleyball, and watching shows and playing games like Valorant (I know).
+        While I am not developing, I like to Rock Climb,
+        play volleyball, and watch shows and play games like Valorant and Terraria.
       </StyledBody1>
     </StyledAboutSectionContent>
   );

@@ -1,7 +1,7 @@
 import { toggleCursorHover } from "@/lib/cursorEffect";
 
 interface InteractableProps {
-  children: React.ReactNode;
+  children: React.ReactElement;
   scaleSize?: number;
   onMouseIn? : () => void;
   onMouseOut? : () => void;

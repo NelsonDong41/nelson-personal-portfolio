@@ -1,16 +1,15 @@
 import * as React from 'react';
 
 interface ContactFormTemplateProps {
-  firstName: string;
-  lastName: string,
+  name: string;
   email: string,
   message: string
 }
 
 export const ContactFormTemplate: React.FC<Readonly<ContactFormTemplateProps>> = ({
-  firstName, lastName, email, message,
+  name, email, message,
 }) => (
   <div>
-    <h1>Welcome, {firstName}!</h1>
+    <h1>Welcome, {name}!</h1>
   </div>
 );

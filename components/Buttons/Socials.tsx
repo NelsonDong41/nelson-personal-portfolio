@@ -5,10 +5,13 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import EmailIcon from "@mui/icons-material/Email";
 import ContactMailIcon from "@mui/icons-material/ContactMail";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import CustomToast from "@/components/CustomToast/CustomToast";
+import { SNACKBAR_TIMER } from "@/lib/constants";
+import ContactForm from "../Sections/Contact/ContactForm";
 
 interface SocialIconWrapperProps {
-  children: React.ReactNode;
+  children: React.ReactElement;
   copyToClipboard?: boolean;
   link: string;
   name: string;
@@ -20,31 +23,17 @@ const StyledStack = styled(Stack)`
   margin: 5vh 0 0 0;
 `;
 
-const StyledModalContainer = styled.div`
-  display: flex;
-  z-index: -1;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  width: 100vw;
-  position: absolute;
-  padding: 5vh;
-`;
-
-const StyledModel = styled(Modal)``;
-const StyledModelContent = styled.div``;
-
 export default function Socials() {
-  const [Copied, setCopied] = useState(false);
-
+  const [copied, setCopied] = useState(false);
+  const [contactFormModalOpen, setContactFormModalOpen] = useState(false);
   const SocialIconOnClick = (copyToClipboard?: boolean, link?: string) => {
-    if (copyToClipboard) {
+    if (copyToClipboard && link) {
       navigator.clipboard.writeText(link!);
       setTimeout(() => {
         setCopied(false);
-      }, 2000);
+      }, SNACKBAR_TIMER);
       setCopied(true);
-    } else {
+    } else if (!copyToClipboard && link) {
       window.open(link || "404", "_blank");
     }
   };
@@ -90,28 +79,22 @@ export default function Socials() {
         >
           <EmailIcon fontSize="large"></EmailIcon>
         </SocialIconWrapper>
-        <SocialIconWrapper
-          name="Full Contact"
-          link="{email: nelsondong158@gmail.com, phone: 917-502-7700, Location: Boston, Availability: May 2024 - December 2024}"
-          copyToClipboard={true}
-        >
+        <SocialIconWrapper name="Resume" link="./Nelson_Dong_resume.pdf">
           <ContactMailIcon fontSize="large"></ContactMailIcon>
         </SocialIconWrapper>
       </StyledStack>
 
-      <StyledModalContainer>
-        <StyledModel
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-          open={Copied}
-          onClose={() => setCopied(false)}
-        >
-          <StyledModelContent>Copied to Clipboard!</StyledModelContent>
-        </StyledModel>
-      </StyledModalContainer>
+      <CustomToast
+        open={copied}
+        severity="info"
+        message={`Copied Email to Clipboard!`}
+      ></CustomToast>
+
+      <Modal
+        open={contactFormModalOpen}
+      >
+        <ContactForm />
+      </Modal>
     </>
   );
 }

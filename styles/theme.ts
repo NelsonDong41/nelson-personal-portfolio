@@ -110,8 +110,8 @@ export const getDesignTokens = (mode: PaletteMode): ThemeOptions => ({
           color: 'white'
         },
         standardInfo: {
-          backgroundColor: 'grey',
-          color: 'black'
+          backgroundColor: '#084d81',
+          color: 'white'
         }
       }
     },

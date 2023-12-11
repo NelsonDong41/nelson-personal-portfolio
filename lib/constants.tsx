@@ -152,3 +152,5 @@ export const SocialsList: Social[] = [
     copyToClipBoard: true,
   },
 ];
+
+export const SNACKBAR_TIMER = 5000;

@@ -5,7 +5,7 @@ import Signature from "../../images/Signature";
 import ProfilePic from "@/components/images/ProfilePic";
 import styled from "@emotion/styled";
 import Intro from "../../Sections/Intro/Intro"
-import Socials from "@/components/Sections/Socials/Socials";
+import Socials from "@/components/Buttons/Socials";
 import pdf from '../../../public/hackBeanPot.png';
 
 const StyledLeftPanelContent = styled.div`

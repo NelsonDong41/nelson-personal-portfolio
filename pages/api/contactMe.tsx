@@ -15,14 +15,14 @@ type ResponseData = {
 const PostHandler = async (req: NextApiRequest, res: NextApiResponse<ResponseData>) => {
   const result = ContactFormSchema.safeParse(req.body);
   if(result.success) {
-    const {firstName, lastName, email, message} = result.data;
+    const {name, email, message} = result.data;
 
     const response : CreateEmailResponse= await resend.emails.send({
       from: `onboarding@resend.dev`,
       to: 'nelsondong158@gmail.com',
-      subject: `${firstName} ${lastName} sent an email - ${email}`,
-      text: `Name: ${firstName} ${lastName}\nEmail: ${email}\nMessage: ${message}`,
-      react: ContactFormTemplate({firstName, lastName, email, message})
+      subject: `${name} sent an email - ${email}`,
+      text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
+      react: ContactFormTemplate({name, email, message})
     });
 
     if(response.error) {

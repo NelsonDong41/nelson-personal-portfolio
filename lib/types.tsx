@@ -25,15 +25,14 @@ export type ColorModeContent = {
 }
 
 export const ContactFormSchema = z.object({
-  firstName: z.string().min(1, {message: 'Please enter a name!'}),
-  lastName: z.string().min(1, {message: 'Please enter a name!'}),
+  name: z.string().min(1, {message: 'Please enter a name!'}),
   email: z.string().min(1).email('Invalid email'),
   message: z.string().min(6, {message: 'Please send a message longer than at least 6 characters!'})
 });
 
 export enum CommonTechStack {
   NEXTJS = "Next.js",
-  REACT = "REACT",
+  REACT = "React",
   MONGODB = "MongoDB",
   JS = "JavaScript",
   TS = "TypeScript",

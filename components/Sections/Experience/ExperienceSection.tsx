@@ -16,7 +16,7 @@ export const StyledClosingLink = styled(Link)<{hovered : string, current?: strin
   margin: 2% 6%;
   text-decoration: none;
   color: ${props => props.color};
-  gap: 1vw;
+  gap: 0.5vw;
   text-decoration: ${props => props.hovered === (props.current || "true") ? 'underline' : 'none'};
 `;
 
@@ -42,7 +42,7 @@ const ExperienceSection: React.FC<ExperienceSectionProps> = ({
           target="_blank"
           hovered = {linkHovered.toString()}
         >
-          Checkout All Experiences! (on my Resume) <StyledArrowRight hovered = {linkHovered.toString()}/>
+          Checkout My Resume <StyledArrowRight hovered = {linkHovered.toString()}/>
         </StyledClosingLink>
       </Interactable>
     </Section>

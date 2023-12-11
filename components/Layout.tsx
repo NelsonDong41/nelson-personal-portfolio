@@ -4,7 +4,7 @@ import { Box } from "@mui/material";
 import React from "react";
 
 interface LayoutProps {
-  children?: React.ReactNode;
+  children?: React.ReactElement;
 }
 
 const StyledContainer = styled(Box)`
