@@ -11,8 +11,13 @@ export default function Signature() {
         xmlns="http://www.w3.org/2000/svg"
         id="canvas"
         viewBox="518.909 327.983 620.869 205.299"
-        width={"350px"}
-        height={"150px"}
+        width={"25vw"}
+        height={"15vh"}
+        style={{
+          minWidth : "250px",
+          minHeight : "125px",
+
+        }}
       >
         <motion.path
           initial={{ pathLength: 0 }}

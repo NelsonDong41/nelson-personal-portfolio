@@ -50,7 +50,7 @@ export const getDesignTokens = (mode: PaletteMode): ThemeOptions => ({
           },
           warning: {
             main: "#0e293f",
-          },
+          }
         }),
   },
   breakpoints: {
@@ -94,4 +94,26 @@ export const getDesignTokens = (mode: PaletteMode): ThemeOptions => ({
       margin: 0,
     },
   },
+  components: {
+    MuiAlert: {
+      styleOverrides: {
+        standardSuccess: {
+          backgroundColor: 'green',
+          color: 'white'
+        },
+        standardError: {
+          backgroundColor: 'red',
+          color: 'white'
+        },
+        standardWarning: {
+          backgroundColor: 'orange',
+          color: 'white'
+        },
+        standardInfo: {
+          backgroundColor: 'grey',
+          color: 'black'
+        }
+      }
+    },
+  }
 });
