@@ -6,20 +6,44 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "preview-email": "email dev"
   },
   "dependencies": {
     "@emotion/core": "^11.0.0",
     "@emotion/react": "^11.11.1",
     "@emotion/server": "^11.11.0",
     "@emotion/styled": "^11.11.0",
+    "@hookform/resolvers": "^3.3.2",
+    "@mui/icons-material": "^5.14.1",
     "@mui/material": "^5.14.0",
+    "@react-email/container": "0.0.10",
+    "@react-email/html": "0.0.6",
+    "@react-email/render": "^0.0.9",
+    "@react-email/section": "0.0.10",
+    "@react-email/text": "0.0.6",
     "@types/node": "20.4.2",
     "@types/react": "18.2.15",
     "@types/react-dom": "18.2.7",
+    "axios": "^1.6.2",
+    "framer-motion": "^10.13.0",
+    "googleapis": "^129.0.0",
     "next": "13.4.10",
+    "nodemailer": "^6.9.7",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "typescript": "5.1.6"
+    "react-email": "1.9.5",
+    "react-hook-form": "^7.48.2",
+    "react-scroll": "^1.8.9",
+    "resend": "^2.0.0",
+    "sharp": "^0.32.6",
+    "sonner": "^1.2.4",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/nodemailer": "^6.4.14",
+    "@types/react-scroll": "^1.8.7",
+    "copy-webpack-plugin": "^11.0.0",
+    "typescript": "5.3.2"
   }
 }

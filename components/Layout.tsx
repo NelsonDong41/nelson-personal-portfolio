@@ -1,14 +1,26 @@
-import { AppProps } from "next/app";
-import { ReactComponentElement } from "react";
+import styled from "@emotion/styled";
+import { BreakPoints } from "@/styles/breakpoints";
+import { Box } from "@mui/material";
+import React from "react";
 
-export interface LayoutProps {
-    children: React.ReactNode;
-  }
-
-export default function Layout(props: LayoutProps ) {
-    const {children} = props;
-    return <div>
-        <h1>AHHHHHHHHHH</h1>
-        {children}
-    </div>
+interface LayoutProps {
+  children?: React.ReactElement;
 }
+
+const StyledContainer = styled(Box)`
+  @media (max-width: ${BreakPoints.laptop}px) {
+    flex-direction: column;
+    height: fit-content;
+  }
+`;
+
+const Layout: React.FC<LayoutProps> = (props: LayoutProps) => {
+  const children = props.children;
+  return (
+    <>
+      <StyledContainer>{children}</StyledContainer>
+    </>
+  );
+};
+
+export default Layout;
