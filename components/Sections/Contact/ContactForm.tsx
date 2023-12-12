@@ -2,7 +2,7 @@ import { SNACKBAR_TIMER } from "@/lib/constants";
 import { ContactFormSchema } from "@/lib/types";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Box, Button, TextField } from "@mui/material";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
@@ -10,11 +10,14 @@ import { ContactFormInputs } from "./ContactSectionContent";
 import SendIcon from "@mui/icons-material/Send";
 import CustomToast from "@/components/CustomToast/CustomToast";
 
+interface PostResponse {
+  data: { message: string };
+}
 
 export default function ContactForm() {
   const [errorMessages, setErrorMessages] = useState<any>();
   const [formValues, setFormValues] = useState<any>({});
-  
+
   const {
     register,
     handleSubmit,
@@ -25,10 +28,11 @@ export default function ContactForm() {
   });
   const [hoverSend, setHoverSend] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [submitErrors, setSubmitErrors] = useState("");
 
   const onSubmit = async (data: any) => {
     try {
-      const response = await axios.post("/api/contactMe", data);
+      const response: PostResponse = await axios.post("/api/contactMe", data);
       if (response.data.message) {
         setSubmitted(true);
         setTimeout(() => {
@@ -38,8 +42,14 @@ export default function ContactForm() {
         reset();
         return;
       }
-    } catch (err) {
-      toast.error("Something went wrong when sending message!");
+    } catch (err: AxiosError | any) {
+      console.log(err.response.data)
+      setSubmitted(true);
+      setSubmitErrors(err.response.data);
+      setTimeout(() => {
+        setSubmitted(false);
+        setSubmitErrors("");
+      }, SNACKBAR_TIMER);
     }
   };
 
@@ -48,7 +58,6 @@ export default function ContactForm() {
   }, [errors]);
 
   return (
-    
     <Box
       component="form"
       onSubmit={handleSubmit(onSubmit)}
@@ -135,14 +144,27 @@ export default function ContactForm() {
       <Button
         type="submit"
         variant="contained"
-        style={{ display: "flex", gap: `${hoverSend ? "1vw" : "0.5vw"}`, transition: "all 300ms"}}
+        style={{
+          display: "flex",
+          gap: `${hoverSend ? "1vw" : "0.5vw"}`,
+          transition: "all 300ms",
+        }}
         onMouseEnter={() => setHoverSend(true)}
         onMouseLeave={() => setHoverSend(false)}
       >
-        <SendIcon style={{transform: `${isSubmitting ? "translateX(10vw)" : "translateX(0)"}`, transition: "ease-in-out 200ms" }}/>
+        <SendIcon
+          style={{
+            transform: `${isSubmitting ? "translateX(10vw)" : "translateX(0)"}`,
+            transition: "ease-in-out 200ms",
+          }}
+        />
         Send Message
       </Button>
-      <CustomToast severity="success" open={submitted} message="Email Sent!" />
+      <CustomToast
+        severity={submitErrors ? "error" : "success"}
+        open={submitted}
+        message={submitErrors ? "Email Sending Failed!!" : "Email Sent!"}
+      />
     </Box>
   );
 }
