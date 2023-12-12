@@ -6,10 +6,13 @@ import Interactable from "../Util/Interactable";
 export default function ColorThemeButton() {
   const colorMode = useContext(ColorModeContext);
   return (
-    <Button variant="contained" onClick={() => colorMode.toggleColorMode!()}>
-      <Interactable>
-        hello
-      </Interactable>
-    </Button>
+    <div>
+      
+    </div>
+    // <Button variant="contained" onClick={() => colorMode.toggleColorMode!()}>
+    //   <Interactable>
+    //     hello
+    //   </Interactable>
+    // </Button>
   );
 }

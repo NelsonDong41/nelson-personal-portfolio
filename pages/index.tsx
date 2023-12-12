@@ -8,8 +8,10 @@ const HomePage: React.FC = () => {
   return (
     <>
       <Layout>
-        <LeftPanel />
-        <RightPanel />
+        <>
+          <LeftPanel />
+          <RightPanel />
+        </>
       </Layout>
       <ScrollToTop />
       <Toaster
