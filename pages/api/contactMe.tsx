@@ -1,18 +1,17 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { render } from "@react-email/render";
-import sendMail from "../../lib/emails";
+import type { InferGetServerSidePropsType, GetServerSideProps } from 'next'
 import { ContactFormSchema } from '@/lib/types';
 import { Resend } from 'resend';
 import { CreateEmailResponse } from 'resend/build/src/emails/interfaces';
 import { ContactFormTemplate } from '@/components/ContactFormTemplate/ContactFormTemplate';
 
-const resend = new Resend(process.env.RESEND_EMAIL_API);
 
 type ResponseData = {
   message: string
 }
 
 const PostHandler = async (req: NextApiRequest, res: NextApiResponse<ResponseData>) => {
+  const resend = new Resend(process.env.RESEND_EMAIL_API);
   const result = ContactFormSchema.safeParse(req.body);
   if(result.success) {
     const {name, email, message} = result.data;
@@ -50,3 +49,9 @@ export default async function handler(
 
   return res.status(405).json({message: "Unexpected HTTP Request"})
 }
+
+
+export const getServerSideProps = ( async () => {
+  const ResendAPIKey = process.env.RESEND_EMAIL_API;
+  return { props: { ResendAPIKey } }
+}) satisfies GetServerSideProps
