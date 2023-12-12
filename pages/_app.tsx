@@ -13,7 +13,6 @@ import { getDesignTokens } from "@/styles/theme";
 import CursorEffect from "@/lib/cursorEffect";
 import { useRouter } from "next/router";
 import { ColorModeContent } from "@/lib/types";
-import {Toaster} from 'sonner'
 
 export const ColorModeContext = createContext<ColorModeContent>({
   toggleColorMode: () => {},
