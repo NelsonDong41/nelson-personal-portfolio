@@ -1,4 +1,4 @@
-import {CardInfo} from "@/lib/types";
+import { CardInfo } from "@/lib/types";
 import styled from "@emotion/styled";
 import { Box, Paper, Stack, useTheme } from "@mui/material";
 import {
@@ -20,7 +20,7 @@ interface ExperienceContentCardProps {
   id: string;
   onMouseIn: (event: React.MouseEvent) => void;
   onMouseOut: (event: React.MouseEvent) => void;
-  onMouseUp: (event: React.MouseEvent) => void;
+  onClick: (event: React.MouseEvent) => void;
 }
 
 const StyledExperienceCardInfo = styled.div`
@@ -50,7 +50,7 @@ const ExperienceContentCard: React.FC<ExperienceContentCardProps> = ({
   id,
   onMouseIn,
   onMouseOut,
-  onMouseUp,
+  onClick,
 }: ExperienceContentCardProps) => {
   let {
     title,
@@ -129,47 +129,45 @@ const ExperienceContentCard: React.FC<ExperienceContentCardProps> = ({
   `;
 
   return (
-    <Interactable scaleSize={2}>
-      <StyledExperienceCard
-        onMouseEnter={onMouseIn}
-        onMouseLeave={onMouseOut}
-        onMouseUp={onMouseUp}
-        id={id}
-        hovered={isCurrentHovered}
-      >
-        <StyledLeft>
-          <StyledBody2>
-            {dateStartString}
-            {!!dateEnd && (
-              <>
-                {" "}
-                -<br></br>
-              </>
-            )}
-            {dateEndString}
-          </StyledBody2>
-        </StyledLeft>
-        <StyledExperienceCardInfo>
-          <div style={{display: "flex", justifyContent: 'space-between'}}>
-            <div>
-              <StyledH3>{title}</StyledH3>
-              <StyledH6>{subtitle}</StyledH6>
-            </div>
-            {logo && <Image src={logo} alt = "" height="40" width="40"></Image>}
+    <StyledExperienceCard
+      onMouseEnter={onMouseIn}
+      onMouseLeave={onMouseOut}
+      onClick={onClick}
+      id={id}
+      hovered={isCurrentHovered}
+    >
+      <StyledLeft style={{ textAlign: "end", marginRight: "2vw" }}>
+        <StyledBody2>
+          {dateStartString}
+          {!!dateEnd && (
+            <>
+              {" "}
+              -<br></br>
+            </>
+          )}
+          {dateEndString}
+        </StyledBody2>
+      </StyledLeft>
+      <StyledExperienceCardInfo>
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <div>
+            <StyledH3>{title}</StyledH3>
+            <StyledH6>{subtitle}</StyledH6>
           </div>
-          <StyledBody2>{description}</StyledBody2>
-        </StyledExperienceCardInfo>
-        <StyledTechStack>
-          {techStack?.map((tech) => {
-            return (
-              <StyledTechBadge key={title + tech} color="secondary">
-                {tech}
-              </StyledTechBadge>
-            );
-          })}
-        </StyledTechStack>
-      </StyledExperienceCard>
-    </Interactable>
+          {logo && <Image src={logo} alt="" height="40" width="40"></Image>}
+        </div>
+        <StyledBody2>{description}</StyledBody2>
+      </StyledExperienceCardInfo>
+      <StyledTechStack>
+        {techStack?.map((tech) => {
+          return (
+            <StyledTechBadge key={title + tech} color="secondary">
+              {tech}
+            </StyledTechBadge>
+          );
+        })}
+      </StyledTechStack>
+    </StyledExperienceCard>
   );
 };
 

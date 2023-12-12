@@ -1,7 +1,7 @@
 import { useMediaQuery, useTheme } from "@mui/material";
 import { StyledH3 } from "../SectionTypography";
 import ExperienceContentCard from "./ContentCard";
-import {CardInfo} from "@/lib/types";
+import { CardInfo } from "@/lib/types";
 import { useState } from "react";
 import React from "react";
 import styled from "@emotion/styled";
@@ -41,15 +41,16 @@ const ExperienceSectionContent: React.FC<ExperienceSectionContentProps> = ({
         <StyledExperienceCardStack>
           {CardInfos.map((currentCardInfo: CardInfo) => {
             return (
-              <Interactable key={currentCardInfo.title}>
+              <Interactable key={currentCardInfo.title} scaleSize = {!!currentCardInfo.link ? "2" : ""} >
                 <ExperienceContentCard
                   key={currentCardInfo.title}
                   cardInfo={currentCardInfo}
                   id={currentCardInfo.title}
                   onMouseIn={handleMouseIn}
                   onMouseOut={handleMouseOut}
-                  onMouseUp={(e) =>
+                  onClick={(e) =>
                     e.nativeEvent.button === 0 &&
+                    currentCardInfo.link &&
                     window.open(currentCardInfo.link || "404", "_blank")
                   }
                 />

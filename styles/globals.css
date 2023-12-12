@@ -28,8 +28,12 @@
   box-shadow: 0px 0px 10px;
 }
 
-.cursorHovered0 {
+.cursorHovered-1 {
   transform: translate(-50%, -50%) scale(0.5);
+}
+
+.cursorHovered0 {
+  transform: translate(-50%, -50%) scale(0);
 }
 
 .cursorHovered1 {

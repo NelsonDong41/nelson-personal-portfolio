@@ -15,7 +15,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({
       <Center>
         <StyledH1>Contact Me Here!</StyledH1>
       </Center>
-      <Divider style={{ margin: "10vh 0 5vh 0" }} />
+      <Divider style={{ margin: "10vh 0 12vh 0" }} />
       <ContactSectionContent />
     </Section>
   );

@@ -24,8 +24,7 @@ const StyledStack = styled(Stack)`
 `;
 
 export default function Socials() {
-  const [copied, setCopied] = useState(false);
-  const [contactFormModalOpen, setContactFormModalOpen] = useState(false);
+  const [copied, setCopied] = useState(false);                                                                                                                                                                                                                                                                                                                                            
   const SocialIconOnClick = (copyToClipboard?: boolean, link?: string) => {
     if (copyToClipboard && link) {
       navigator.clipboard.writeText(link!);
@@ -89,12 +88,6 @@ export default function Socials() {
         severity="info"
         message={`Copied Email to Clipboard!`}
       ></CustomToast>
-
-      <Modal
-        open={contactFormModalOpen}
-      >
-        <ContactForm />
-      </Modal>
     </>
   );
 }

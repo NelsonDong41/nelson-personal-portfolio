@@ -139,7 +139,7 @@ export default function ContactForm() {
         onMouseEnter={() => setHoverSend(true)}
         onMouseLeave={() => setHoverSend(false)}
       >
-        <SendIcon style={{transform: `${isSubmitting ? "translateX(10vw)" : ""}`, transition: "ease-in-out 200ms" }}/>
+        <SendIcon style={{transform: `${isSubmitting ? "translateX(10vw)" : "translateX(0)"}`, transition: "ease-in-out 200ms" }}/>
         Send Message
       </Button>
       <CustomToast severity="success" open={submitted} message="Email Sent!" />

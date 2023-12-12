@@ -2,13 +2,13 @@ import { toggleCursorHover } from "@/lib/cursorEffect";
 
 interface InteractableProps {
   children: React.ReactElement;
-  scaleSize?: number;
+  scaleSize?: string;
   onMouseIn? : () => void;
   onMouseOut? : () => void;
   onMouseClick? : (copyToClipboard? : boolean) => void;
 }
 
-const Interactable = ({children, scaleSize = 1, onMouseIn, onMouseOut, onMouseClick}: InteractableProps) => {
+const Interactable = ({children, scaleSize = "1", onMouseIn, onMouseOut, onMouseClick}: InteractableProps) => {
 
   const handleMouseIn = () => {
     toggleCursorHover(true, scaleSize);

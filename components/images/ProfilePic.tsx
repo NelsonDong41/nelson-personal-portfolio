@@ -4,7 +4,7 @@ import { useTheme } from "@mui/material";
 
 const ProfilePic = () => {
   return (
-    <Interactable scaleSize={0}>
+    <Interactable scaleSize={"-1"}>
       <Image
         priority={true}
         src="/profilepic.png"
