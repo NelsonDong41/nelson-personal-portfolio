@@ -1,7 +1,5 @@
-import { Box, Button, Grid, ToggleButton } from "@mui/material";
 import styled from "@emotion/styled";
 import AboutSection from "@/components/Sections/About/AboutSection";
-import ColorThemeButton from "../../Buttons/ColorThemeButton";
 import ExperienceSection from "@/components/Sections/Experience/ExperienceSection";
 import ProjectSection from "@/components/Sections/Project/ProjectSection";
 import ContactSection from "@/components/Sections/Contact/ContactSection";

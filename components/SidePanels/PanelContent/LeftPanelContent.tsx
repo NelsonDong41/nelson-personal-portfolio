@@ -1,12 +1,11 @@
-import { Box } from "@mui/material";
 import ColorThemeButton from "../../Buttons/ColorThemeButton";
 import SelectSectionsButton from "../../Buttons/SelectSectionsButton";
 import Signature from "../../images/Signature";
 import ProfilePic from "@/components/images/ProfilePic";
 import styled from "@emotion/styled";
-import Intro from "../../Sections/Intro/Intro"
+import Intro from "../../Sections/Intro/Intro";
 import Socials from "@/components/Buttons/Socials";
-import pdf from '../../../public/hackBeanPot.png';
+import { useTheme } from "@mui/material";
 
 const StyledLeftPanelContent = styled.div`
   display: flex;
@@ -14,20 +13,21 @@ const StyledLeftPanelContent = styled.div`
   width: 100%;
   align-items: center;
   gap: 2vh;
-  
 `;
 
-const LeftPanelContent : React.FC = () => {
+const LeftPanelContent: React.FC = () => {
   return (
-    <StyledLeftPanelContent>
-      {/* <ColorThemeButton /> */}
-      <ProfilePic />
-      <Signature />
-      <Intro />
-      <SelectSectionsButton />
-      <Socials />
-    </StyledLeftPanelContent>
+    <>
+      <ColorThemeButton />
+      <StyledLeftPanelContent>
+        <ProfilePic />
+        <Signature />
+        <Intro />
+        <SelectSectionsButton />
+        <Socials />
+      </StyledLeftPanelContent>
+    </>
   );
-}
+};
 
-export default LeftPanelContent
+export default LeftPanelContent;

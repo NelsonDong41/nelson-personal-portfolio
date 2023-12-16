@@ -5,6 +5,7 @@
   top: 0;
   overflow-x: hidden;
   cursor: none;
+  transition: background-color 2s;
 }
 
 *:hover {
@@ -43,3 +44,4 @@
 .cursorHovered2 {
   transform: translate(-50%, -50%) scale(5);
 }
+

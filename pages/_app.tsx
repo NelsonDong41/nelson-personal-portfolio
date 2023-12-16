@@ -16,29 +16,31 @@ import { ColorModeContent } from "@/lib/types";
 
 export const ColorModeContext = createContext<ColorModeContent>({
   toggleColorMode: () => {},
+  colorMode: () => "dark",
 });
 
 export default function App({ Component, pageProps }: AppProps) {
-  // const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
+  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
 
   const [mode, setMode] = useState<PaletteMode>("dark");
   const router = useRouter();
- 
 
-  // useEffect(() => {
-  //   setMode(prefersDarkMode ? "dark" : "light")
-  // }, [prefersDarkMode])
+  useEffect(() => {
+    setMode(prefersDarkMode ? "dark" : "light");
+  }, [prefersDarkMode]);
 
+  // reapply cursor effect when on different page
   useEffect(() => {
     CursorEffect();
   }, [router.asPath]);
 
-  const colorMode = useMemo(
+  const colorModeMemo = useMemo(
     () => ({
       toggleColorMode: () =>
         setMode((prevColor: PaletteMode) =>
           prevColor === "light" ? "dark" : "light"
         ),
+      colorMode: () => mode,
     }),
     []
   );
@@ -47,7 +49,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <>
-      <ColorModeContext.Provider value={colorMode}>
+      <ColorModeContext.Provider value={colorModeMemo}>
         <ThemeProvider theme={theme}>
           <CssBaseline />
           <Component {...pageProps} />

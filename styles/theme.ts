@@ -6,22 +6,35 @@ export const getDesignTokens = (mode: PaletteMode): ThemeOptions => ({
     mode,
     ...(mode === "light"
       ? {
-          primary: {
-            main: "#f1ad41",
-          },
-
-          secondary: {
-            main: "#f8d6a0",
-          },
-
-          accent: "#be7a0e",
-
           background: {
-            default: "#fdf3e3",
+            default: "#e0e0e0",
+            paper: "#c0c0c0",
           },
-
           text: {
-            primary: "#2f1f04",
+            primary: "#000000",
+            secondary: "#6a7a87",
+          },
+          action: {
+            active: "#4187c2",
+            hover: "#71a0c9",
+          },
+          primary: {
+            main: "#3f51b5",
+            light: "#6573c3",
+            contrastText: "#fff",
+          },
+          secondary: {
+            main: "#ff4081",
+            dark: "#d81b60",
+          },
+          error: {
+            main: "#e57373",
+          },
+          warning: {
+            main: "#ffb74d",
+          },
+          info: {
+            main: "#64b5f6",
           },
         }
       : {
@@ -50,7 +63,7 @@ export const getDesignTokens = (mode: PaletteMode): ThemeOptions => ({
           },
           warning: {
             main: "#0e293f",
-          }
+          },
         }),
   },
   breakpoints: {
@@ -98,22 +111,22 @@ export const getDesignTokens = (mode: PaletteMode): ThemeOptions => ({
     MuiAlert: {
       styleOverrides: {
         standardSuccess: {
-          backgroundColor: 'green',
-          color: 'white'
+          backgroundColor: "green",
+          color: "white",
         },
         standardError: {
-          backgroundColor: 'red',
-          color: 'white'
+          backgroundColor: "red",
+          color: "white",
         },
         standardWarning: {
-          backgroundColor: 'orange',
-          color: 'white'
+          backgroundColor: "orange",
+          color: "white",
         },
         standardInfo: {
-          backgroundColor: '#084d81',
-          color: 'white'
-        }
-      }
+          backgroundColor: "#084d81",
+          color: "white",
+        },
+      },
     },
-  }
+  },
 });
