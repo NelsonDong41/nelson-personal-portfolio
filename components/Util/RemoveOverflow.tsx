@@ -1,7 +1,7 @@
 import React from "react";
 
 interface RemoveOverflowProps {
-  children: React.ReactElement | React.ReactElement[];
+  children?: React.ReactElement | React.ReactElement[];
 }
 
 export default function RemoveOverflow({ children }: RemoveOverflowProps) {

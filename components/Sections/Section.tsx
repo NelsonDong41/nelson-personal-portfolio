@@ -4,7 +4,7 @@ import RemoveOverflow from "../Util/RemoveOverflow";
 
 export interface SectionProps {
   id: string;
-  children: React.ReactElement | React.ReactElement[];
+  children?: React.ReactElement | React.ReactElement[];
 }
 
 const StyledSection = styled(Element)`
