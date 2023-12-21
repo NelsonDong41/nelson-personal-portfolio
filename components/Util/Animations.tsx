@@ -5,6 +5,9 @@ const hidden = {
       duration: 1,
     },
   },
+  hiddenNotUp: {
+    opacity: 0,
+  },
   animate: {
     opacity: 0,
     transition: {
@@ -15,11 +18,14 @@ const hidden = {
 
 const fadeInUp = {
   hidden: {
-    y: 100,
+    marginTop: 60,
+    opacity: 0,
+  },
+  hiddenNotUp: {
     opacity: 0,
   },
   visible: {
-    y: 0,
+    marginTop: 0,
     opacity: 1,
     transition: {
       duration: 1,
@@ -28,14 +34,4 @@ const fadeInUp = {
 };
 
 
-const staggerContainer = {
-  hidden: {  },
-  visible: {
-      transition: {
-          staggerChildren: .75,
-          delayChildren: 0.3,
-      },
-  },
-}
-
-export default { hidden, fadeInUp, staggerContainer};
+export default { hidden, fadeInUp};

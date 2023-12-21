@@ -1,16 +1,18 @@
 import styled from "@emotion/styled";
 import { Element } from "react-scroll";
+import RemoveOverflow from "../Util/RemoveOverflow";
 
 export interface SectionProps {
   id: string;
-  children?: React.ReactNode;
+  children: React.ReactElement | React.ReactElement[];
 }
 
 const StyledSection = styled(Element)`
   width: 100%;
   display: flex;
   flex-direction: column;
-  margin: 5vh 0;
+  padding: 5vh 0;
+  height: fit-content;
 `;
 
 const Section: React.FC<SectionProps> = ({
@@ -19,7 +21,9 @@ const Section: React.FC<SectionProps> = ({
 }: SectionProps) => {
   return (
     <StyledSection name = {id}>
-      {children}
+      <RemoveOverflow>
+        {children}
+      </RemoveOverflow>
     </StyledSection>
   );
 };

@@ -2,29 +2,22 @@ import { CardInfo } from "@/lib/types";
 import styled from "@emotion/styled";
 import { Box, Paper, Stack, useTheme } from "@mui/material";
 import {
-  StyledBody1,
   StyledBody2,
   StyledH3,
-  StyledH4,
-  StyledH5,
   StyledH6,
 } from "../SectionTypography";
 import React, {
-  MouseEvent,
   useContext,
   useEffect,
-  useRef,
-  useState,
 } from "react";
 import { HoveredCardContext } from "./ExperienceSectionContent";
 import { monthNames } from "@/lib/constants";
-import Interactable from "@/components/Util/Interactable";
 import Image from "next/image";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import Animations from "@/components/Util/Animations";
 
-interface ExperienceContentCardProps {
+interface ContentCardProps {
   cardInfo: CardInfo;
   id: string;
   onMouseIn: (event: React.MouseEvent) => void;
@@ -54,18 +47,18 @@ export const StyledTechBadge = styled(Paper)`
   color: inherit;
 `;
 
-const ExperienceContentCard: React.FC<ExperienceContentCardProps> = ({
+const ContentCard: React.FC<ContentCardProps> = ({
   cardInfo,
   id,
   onMouseIn,
   onMouseOut,
   onClick,
-}: ExperienceContentCardProps) => {
+}: ContentCardProps) => {
   let { title, subtitle, description, dateStart, dateEnd, techStack, logo } =
     cardInfo;
   const theme = useTheme();
 
-  const StyledExperienceCard = styled(motion(Box))<{ hovered: string }>`
+  const StyledContentCard = styled(motion(Box))<{ hovered: string }>`
     padding: 3%;
     display: grid;
     grid-template-columns: 1fr 3fr;
@@ -128,13 +121,29 @@ const ExperienceContentCard: React.FC<ExperienceContentCardProps> = ({
     flex-direction: column;
   `;
 
+  const animationControls = useAnimation();
+  const [ref, inView] = useInView({
+    threshold: 0.2,
+    delay: 0.3
+  });
+
+  // if the section is in view, start the animation for the section
+  useEffect(() => {
+    inView
+      ? animationControls.start("visible")
+      : animationControls.set("hiddenNotUp");
+  }, [animationControls, inView]);
+
 
   return (
     <motion.div
       key={title}
       variants={Animations.fadeInUp}
+      ref = {ref}
+      initial="hidden"
+      animate={animationControls}
     >
-      <StyledExperienceCard
+      <StyledContentCard
         onMouseEnter={onMouseIn}
         onMouseLeave={onMouseOut}
         onClick={onClick}
@@ -171,9 +180,9 @@ const ExperienceContentCard: React.FC<ExperienceContentCardProps> = ({
             );
           })}
         </StyledTechStack>
-      </StyledExperienceCard>
+      </StyledContentCard>
     </motion.div>
   );
 };
 
-export default motion(ExperienceContentCard);
+export default ContentCard;

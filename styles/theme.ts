@@ -7,34 +7,30 @@ export const getDesignTokens = (mode: PaletteMode): ThemeOptions => ({
     ...(mode === "light"
       ? {
           background: {
-            default: "#e0e0e0",
-            paper: "#c0c0c0",
+            default: "#dbc0aa",
+            paper: "#e2cec4",
           },
           text: {
-            primary: "#000000",
-            secondary: "#6a7a87",
+            primary: "#59442f",
+            secondary: "#816258",
           },
           action: {
-            active: "#4187c2",
-            hover: "#71a0c9",
+            active: "#ecccbd",
+            hover: "#d7b6a6",
           },
           primary: {
-            main: "#3f51b5",
-            light: "#6573c3",
-            contrastText: "#fff",
+            main: "#b98e6d",
+            light: "#d2a587",
+            contrastText: "#3d2c25",
           },
           secondary: {
-            main: "#ff4081",
-            dark: "#d81b60",
+            main: "#916b51",
           },
           error: {
-            main: "#e57373",
+            main: "#9d4a3b",
           },
           warning: {
-            main: "#ffb74d",
-          },
-          info: {
-            main: "#64b5f6",
+            main: "#ab6304",
           },
         }
       : {

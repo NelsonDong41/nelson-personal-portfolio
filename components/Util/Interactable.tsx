@@ -1,4 +1,5 @@
 import { toggleCursorHover } from "@/lib/cursorEffect";
+import RemoveOverflow from "./RemoveOverflow";
 
 interface InteractableProps {
   children: React.ReactElement;
@@ -34,9 +35,8 @@ const Interactable = ({
       onMouseEnter={handleMouseIn}
       onMouseLeave={handleMouseOut}
       onMouseDown={handleMouseClick}
-      style={{overflow: 'hidden'}}
     >
-      {children}
+      <RemoveOverflow>{children}</RemoveOverflow>
     </div>
   );
 };
