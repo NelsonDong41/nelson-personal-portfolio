@@ -2,20 +2,22 @@ import { CardInfo } from "@/lib/types";
 import styled from "@emotion/styled";
 import { Box, Paper, Stack, useTheme } from "@mui/material";
 import {
-  StyledBody1,
   StyledBody2,
   StyledH3,
-  StyledH4,
-  StyledH5,
   StyledH6,
 } from "../SectionTypography";
-import React, { MouseEvent, useContext, useState } from "react";
+import React, {
+  useContext,
+  useEffect,
+} from "react";
 import { HoveredCardContext } from "./ExperienceSectionContent";
 import { monthNames } from "@/lib/constants";
-import Interactable from "@/components/Util/Interactable";
 import Image from "next/image";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import Animations from "@/components/Util/Animations";
 
-interface ExperienceContentCardProps {
+interface ContentCardProps {
   cardInfo: CardInfo;
   id: string;
   onMouseIn: (event: React.MouseEvent) => void;
@@ -45,35 +47,26 @@ export const StyledTechBadge = styled(Paper)`
   color: inherit;
 `;
 
-const ExperienceContentCard: React.FC<ExperienceContentCardProps> = ({
+const ContentCard: React.FC<ContentCardProps> = ({
   cardInfo,
   id,
   onMouseIn,
   onMouseOut,
   onClick,
-}: ExperienceContentCardProps) => {
-  let {
-    title,
-    subtitle,
-    description,
-    dateStart,
-    dateEnd,
-    link,
-    techStack,
-    image,
-    logo,
-  } = cardInfo;
+}: ContentCardProps) => {
+  let { title, subtitle, description, dateStart, dateEnd, techStack, logo } =
+    cardInfo;
   const theme = useTheme();
 
-  const StyledExperienceCard = styled(Box)<{ hovered: string }>`
-    padding: 5%;
+  const StyledContentCard = styled(motion(Box))<{ hovered: string }>`
+    padding: 3%;
     display: grid;
     grid-template-columns: 1fr 3fr;
     background-color: ${theme.palette.background.paper};
     border-radius: 10px;
     transition: all 5s ease-out;
     box-shadow: 8px 10px 5px -1px rgba(0, 0, 0, 0.2);
-    margin: 3%;
+    margin: 3% 4%;
     -moz-user-select: -moz-none;
     -khtml-user-select: none;
     -webkit-user-select: none;
@@ -92,8 +85,8 @@ const ExperienceContentCard: React.FC<ExperienceContentCardProps> = ({
       } else if (props.hovered === "notHovered") {
         return `
         transition: all 5s ease-out;
-        filter: blur(4px);
-        -webkit-filter: blur(4px);
+        filter: blur(3px);
+        -webkit-filter: blur(3px);
         box-shadow: 0px 0px;
         background-color: ${theme.palette.background.default};
         `;
@@ -128,47 +121,68 @@ const ExperienceContentCard: React.FC<ExperienceContentCardProps> = ({
     flex-direction: column;
   `;
 
+  const animationControls = useAnimation();
+  const [ref, inView] = useInView({
+    threshold: 0.2,
+    delay: 0.3
+  });
+
+  // if the section is in view, start the animation for the section
+  useEffect(() => {
+    inView
+      ? animationControls.start("visible")
+      : animationControls.set("hiddenNotUp");
+  }, [animationControls, inView]);
+
+
   return (
-    <StyledExperienceCard
-      onMouseEnter={onMouseIn}
-      onMouseLeave={onMouseOut}
-      onClick={onClick}
-      id={id}
-      hovered={isCurrentHovered}
+    <motion.div
+      key={title}
+      variants={Animations.fadeInUp}
+      ref = {ref}
+      initial="hidden"
+      animate={animationControls}
     >
-      <StyledLeft style={{ textAlign: "end", marginRight: "2vw" }}>
-        <StyledBody2>
-          {dateStartString}
-          {!!dateEnd && (
-            <>
-              {" "}
-              -<br></br>
-            </>
-          )}
-          {dateEndString}
-        </StyledBody2>
-      </StyledLeft>
-      <StyledExperienceCardInfo>
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
-          <div>
-            <StyledH3>{title}</StyledH3>
-            <StyledH6>{subtitle}</StyledH6>
+      <StyledContentCard
+        onMouseEnter={onMouseIn}
+        onMouseLeave={onMouseOut}
+        onClick={onClick}
+        id={id}
+        hovered={isCurrentHovered}
+      >
+        <StyledLeft style={{ textAlign: "end", marginRight: "2vw" }}>
+          <StyledBody2>
+            {dateStartString}
+            {!!dateEnd && (
+              <>
+                <br></br>-<br></br>
+              </>
+            )}
+            {dateEndString}
+          </StyledBody2>
+        </StyledLeft>
+        <StyledExperienceCardInfo>
+          <div style={{ display: "flex", justifyContent: "space-between" }}>
+            <div>
+              <StyledH3>{title}</StyledH3>
+              <StyledH6>{subtitle}</StyledH6>
+            </div>
+            {logo && <Image src={logo} alt="" height="40" width="40"></Image>}
           </div>
-          {logo && <Image src={logo} alt="" height="40" width="40"></Image>}
-        </div>
-        <StyledBody2>{description}</StyledBody2>
-      </StyledExperienceCardInfo>
-      <StyledTechStack>
-        {techStack?.map((tech) => {
-          return (
-            <StyledTechBadge key={title + tech} color="secondary">
-              {tech}
-            </StyledTechBadge>
-          );
-        })}
-      </StyledTechStack>
-    </StyledExperienceCard>
+          <StyledBody2>{description}</StyledBody2>
+        </StyledExperienceCardInfo>
+        <StyledTechStack>
+          {techStack?.map((tech) => {
+            return (
+              <StyledTechBadge key={title + tech} color="secondary">
+                {tech}
+              </StyledTechBadge>
+            );
+          })}
+        </StyledTechStack>
+      </StyledContentCard>
+    </motion.div>
   );
 };
 
-export default ExperienceContentCard;
+export default ContentCard;

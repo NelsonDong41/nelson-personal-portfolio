@@ -6,22 +6,31 @@ export const getDesignTokens = (mode: PaletteMode): ThemeOptions => ({
     mode,
     ...(mode === "light"
       ? {
-          primary: {
-            main: "#f1ad41",
-          },
-
-          secondary: {
-            main: "#f8d6a0",
-          },
-
-          accent: "#be7a0e",
-
           background: {
-            default: "#fdf3e3",
+            default: "#dbc0aa",
+            paper: "#e2cec4",
           },
-
           text: {
-            primary: "#2f1f04",
+            primary: "#59442f",
+            secondary: "#816258",
+          },
+          action: {
+            active: "#ecccbd",
+            hover: "#d7b6a6",
+          },
+          primary: {
+            main: "#b98e6d",
+            light: "#d2a587",
+            contrastText: "#3d2c25",
+          },
+          secondary: {
+            main: "#916b51",
+          },
+          error: {
+            main: "#9d4a3b",
+          },
+          warning: {
+            main: "#ab6304",
           },
         }
       : {
@@ -50,7 +59,7 @@ export const getDesignTokens = (mode: PaletteMode): ThemeOptions => ({
           },
           warning: {
             main: "#0e293f",
-          }
+          },
         }),
   },
   breakpoints: {
@@ -98,22 +107,22 @@ export const getDesignTokens = (mode: PaletteMode): ThemeOptions => ({
     MuiAlert: {
       styleOverrides: {
         standardSuccess: {
-          backgroundColor: 'green',
-          color: 'white'
+          backgroundColor: "green",
+          color: "white",
         },
         standardError: {
-          backgroundColor: 'red',
-          color: 'white'
+          backgroundColor: "red",
+          color: "white",
         },
         standardWarning: {
-          backgroundColor: 'orange',
-          color: 'white'
+          backgroundColor: "orange",
+          color: "white",
         },
         standardInfo: {
-          backgroundColor: '#084d81',
-          color: 'white'
-        }
-      }
+          backgroundColor: "#084d81",
+          color: "white",
+        },
+      },
     },
-  }
+  },
 });

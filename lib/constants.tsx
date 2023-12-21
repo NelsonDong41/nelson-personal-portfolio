@@ -11,10 +11,12 @@ export const sectionNames = ["About", "Experiences", "Projects", "Contact"];
 
 const sortCardInfos = (CardInfos: CardInfo[]): CardInfo[] => {
   return CardInfos.sort((a, b) => {
-    return (
-      (b.dateEnd?.getTime() || b.dateStart.getTime()) -
-      (a.dateEnd?.getTime() || a.dateStart.getTime())
-    );
+    
+    let sort = (b.dateEnd?.getTime() || b.dateStart.getTime()) - (a.dateEnd?.getTime() || a.dateStart.getTime());
+    if(sort === 0) {
+      sort = (b.title.localeCompare(a.title))
+    }
+    return sort;
   });
 };
 

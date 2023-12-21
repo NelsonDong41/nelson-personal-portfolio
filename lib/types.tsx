@@ -22,6 +22,7 @@ export type Social = {
 
 export type ColorModeContent = {
   toggleColorMode: () => void;
+  colorMode: () => 'dark' | 'light'
 }
 
 export const ContactFormSchema = z.object({

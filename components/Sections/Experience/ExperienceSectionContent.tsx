@@ -1,12 +1,11 @@
 import { useMediaQuery, useTheme } from "@mui/material";
 import { StyledH3 } from "../SectionTypography";
-import ExperienceContentCard from "./ContentCard";
+import ContentCard from "./ContentCard";
 import { CardInfo } from "@/lib/types";
 import { useState } from "react";
 import React from "react";
 import styled from "@emotion/styled";
 import Interactable from "@/components/Util/Interactable";
-
 interface ExperienceSectionContentProps {
   CardInfos: CardInfo[];
 }
@@ -16,6 +15,8 @@ export const HoveredCardContext = React.createContext("");
 const StyledExperienceCardStack = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 1vh;
+  overflow: hidden;
 `;
 
 const ExperienceSectionContent: React.FC<ExperienceSectionContentProps> = ({
@@ -35,31 +36,35 @@ const ExperienceSectionContent: React.FC<ExperienceSectionContentProps> = ({
   };
 
   return (
-    <HoveredCardContext.Provider value={hoveredId}>
-      <div style={{ height: "100%", width: "100%" }}>
-        {isMobileView && <StyledH3>Experience</StyledH3>}
-        <StyledExperienceCardStack>
-          {CardInfos.map((currentCardInfo: CardInfo) => {
-            return (
-              <Interactable key={currentCardInfo.title} scaleSize = {!!currentCardInfo.link ? "2" : ""} >
-                <ExperienceContentCard
-                  key={currentCardInfo.title}
-                  cardInfo={currentCardInfo}
-                  id={currentCardInfo.title}
-                  onMouseIn={handleMouseIn}
-                  onMouseOut={handleMouseOut}
-                  onClick={(e) =>
-                    e.nativeEvent.button === 0 &&
-                    currentCardInfo.link &&
-                    window.open(currentCardInfo.link || "404", "_blank")
-                  }
-                />
-              </Interactable>
-            );
-          })}
-        </StyledExperienceCardStack>
-      </div>
-    </HoveredCardContext.Provider>
+    <>
+      <HoveredCardContext.Provider value={hoveredId}>
+        <div style={{ width: "100%", overflow: "hidden"}}>
+          {isMobileView && <StyledH3>Experience</StyledH3>}
+          <StyledExperienceCardStack>
+            {CardInfos.map((currentCardInfo: CardInfo, index: number) => {
+              return (
+                <Interactable
+                  key={index}
+                  scaleSize={!!currentCardInfo.link ? "2" : ""}
+                >
+                  <ContentCard
+                    cardInfo={currentCardInfo}
+                    id={currentCardInfo.title}
+                    onMouseIn={handleMouseIn}
+                    onMouseOut={handleMouseOut}
+                    onClick={(e) =>
+                      e.nativeEvent.button === 0 &&
+                      currentCardInfo.link &&
+                      window.open(currentCardInfo.link || "404", "_blank")
+                    }
+                  />
+                </Interactable>
+              );
+            })}
+          </StyledExperienceCardStack>
+        </div>
+      </HoveredCardContext.Provider>
+    </>
   );
 };
 

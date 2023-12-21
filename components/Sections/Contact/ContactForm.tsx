@@ -43,7 +43,6 @@ export default function ContactForm() {
         return;
       }
     } catch (err: AxiosError | any) {
-      console.log(err.response.data)
       setSubmitted(true);
       setSubmitErrors(err.response.data);
       setTimeout(() => {
