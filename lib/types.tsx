@@ -25,6 +25,10 @@ export type ColorModeContent = {
   colorMode: () => 'dark' | 'light'
 }
 
+export type MobileViewContent = {
+  isMobileView: boolean;
+}
+
 export const ContactFormSchema = z.object({
   name: z.string().min(1, {message: 'Please enter a name!'}),
   email: z.string().min(1).email('Invalid email'),

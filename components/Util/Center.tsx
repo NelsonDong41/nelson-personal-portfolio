@@ -6,7 +6,7 @@ interface CenterProps {
 }
 
 export default function Center({children} : CenterProps) {
-  return <div style={{display: "flex", justifyContent: "center", alignContent: "center"}}>
+  return <div style={{display: "flex", justifyContent: "center", alignContent: "center", height: "100%", width: "100%"}}>
     {children}
   </div>
 }

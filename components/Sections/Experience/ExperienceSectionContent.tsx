@@ -23,7 +23,6 @@ const ExperienceSectionContent: React.FC<ExperienceSectionContentProps> = ({
   CardInfos,
 }: ExperienceSectionContentProps) => {
   const theme = useTheme();
-  const isMobileView = useMediaQuery(theme.breakpoints.down("laptop"));
 
   const [hoveredId, setHoveredId] = useState("");
 
@@ -39,7 +38,6 @@ const ExperienceSectionContent: React.FC<ExperienceSectionContentProps> = ({
     <>
       <HoveredCardContext.Provider value={hoveredId}>
         <div style={{ width: "100%", overflow: "hidden"}}>
-          {isMobileView && <StyledH3>Experience</StyledH3>}
           <StyledExperienceCardStack>
             {CardInfos.map((currentCardInfo: CardInfo, index: number) => {
               return (

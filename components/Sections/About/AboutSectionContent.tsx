@@ -1,11 +1,11 @@
 import { useMediaQuery, useTheme } from "@mui/material";
 import { StyledH3, StyledLink, StyledBody1 } from "../SectionTypography";
 import styled from "@emotion/styled";
-
+import Center from "@/components/Util/Center";
 
 const StyledAboutSectionContent = styled.div`
- padding: 5%;
-`
+  padding: 5%;
+`;
 
 const AboutSectionContent: React.FC = () => {
   const theme = useTheme();
@@ -13,7 +13,6 @@ const AboutSectionContent: React.FC = () => {
 
   return (
     <StyledAboutSectionContent>
-      {isMobileView && <StyledH3>About</StyledH3>}
       <StyledBody1>
         My first ever experience of coding was in middle school through this
         game called{" "}
@@ -35,8 +34,8 @@ const AboutSectionContent: React.FC = () => {
         {""}
         <br />
         <br />
-        While I am not developing, I like to Rock Climb,
-        play volleyball, and watch shows and play games like Valorant and Terraria.
+        While I am not developing, I like to Rock Climb, play volleyball, and
+        watch shows and play games like Valorant and Terraria.
       </StyledBody1>
     </StyledAboutSectionContent>
   );

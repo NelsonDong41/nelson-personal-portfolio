@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import Section, { SectionProps } from "../Section";
+import Section, { SectionHeader, SectionProps } from "../Section";
 import ExperienceSectionContent from "./ExperienceSectionContent";
 import {
   EXPERIENCE_DISPLAYED_COUNT,
@@ -7,7 +7,7 @@ import {
 } from "@/lib/constants";
 import { useEffect, useState } from "react";
 import Interactable from "@/components/Util/Interactable";
-import { useTheme } from "@mui/material";
+import { useMediaQuery, useTheme } from "@mui/material";
 import { ArrowForward } from "@mui/icons-material";
 import Link from "next/link";
 import { useAnimation } from "framer-motion";
@@ -38,6 +38,7 @@ const StyledArrowRight = styled(ArrowForward)<{ hovered: string }>`
 
 const ExperienceSection: React.FC<ExperienceSectionProps> = ({
   id,
+  title
 }: ExperienceSectionProps) => {
   const theme = useTheme();
   const [linkHovered, setLinkHovered] = useState(false);
@@ -45,7 +46,7 @@ const ExperienceSection: React.FC<ExperienceSectionProps> = ({
   const animationControls = useAnimation();
   const [ref, inView] = useInView({
     threshold: 1,
-    delay: 0.3
+    delay: 0.3,
   });
 
   // if the section is in view, start the animation for the section
@@ -56,31 +57,31 @@ const ExperienceSection: React.FC<ExperienceSectionProps> = ({
   }, [animationControls, inView]);
 
   return (
-    <Section id={id}>
+    <Section id={id} title={title}>
       <ExperienceSectionContent
         CardInfos={ExperienceCardInfos.slice(0, EXPERIENCE_DISPLAYED_COUNT)}
       />
-        <motion.div
-          variants={Animations.fadeInUp}
-          ref={ref}
-          initial="hidden"
-          animate={animationControls}
+      <motion.div
+        variants={Animations.fadeInUp}
+        ref={ref}
+        initial="hidden"
+        animate={animationControls}
+      >
+        <Interactable
+          onMouseIn={() => setLinkHovered(true)}
+          onMouseOut={() => setLinkHovered(false)}
         >
-          <Interactable
-            onMouseIn={() => setLinkHovered(true)}
-            onMouseOut={() => setLinkHovered(false)}
+          <StyledClosingLink
+            color={theme.palette.text.primary}
+            href="./Nelson_Dong_resume.pdf"
+            target="_blank"
+            hovered={linkHovered.toString()}
           >
-            <StyledClosingLink
-              color={theme.palette.text.primary}
-              href="./Nelson_Dong_resume.pdf"
-              target="_blank"
-              hovered={linkHovered.toString()}
-            >
-              Checkout My Resume{" "}
-              <StyledArrowRight hovered={linkHovered.toString()} />
-            </StyledClosingLink>
-          </Interactable>
-        </motion.div>
+            Checkout My Resume{" "}
+            <StyledArrowRight hovered={linkHovered.toString()} />
+          </StyledClosingLink>
+        </Interactable>
+      </motion.div>
     </Section>
   );
 };
