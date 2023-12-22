@@ -36,7 +36,7 @@ const ProjectSection: React.FC<ProjectSectionProps> = ({
   const theme = useTheme();
   const animationControls = useAnimation();
   const [ref, inView] = useInView({
-    threshold: 1,
+    threshold: 0.5,
     delay: 0.3
   });
 

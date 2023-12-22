@@ -32,7 +32,6 @@ const Section: React.FC<SectionProps> = ({
   return (
     <StyledSection name={id}>
       {title && <SectionHeader>{title}</SectionHeader>}
-        <Divider component="div" style={{ alignSelf: "center", width: "75vw", boxShadow: "0 0 5px" }}/>
       <RemoveOverflow>{children}</RemoveOverflow>
     </StyledSection>
   );
@@ -50,6 +49,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
       {isMobileView && (
         <Center>
           <StyledH1>{children}</StyledH1>
+          <Divider component="div" style={{ alignSelf: "center", width: "75vw", marginTop: "5vh", boxShadow: "0 0 5px" }}/>
         </Center>
       )}
     </div>

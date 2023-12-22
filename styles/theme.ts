@@ -75,27 +75,27 @@ export const getDesignTokens = (mode: PaletteMode, isMobileView: boolean): Theme
     h3: {
       fontFamily: "Spectral, serif",
       fontWeight: 800,
-      fontSize: isMobileView ? "50px" : "22px",
+      fontSize: isMobileView ? "14px" : "22px",
     },
     h5: {
       fontFamily: "Spectral, serif",
       fontWeight: 800,
-      fontSize: "20px",
+      fontSize: isMobileView ? "14px" : "20px",
     },
     h6: {
       fontFamily: "Spectral",
       fontWeight: 800,
-      fontSize: "18px",
+      fontSize: isMobileView ? "14px" : "16px",
     },
     body1: {
       fontFamily: "Rubik, sans-serif",
       fontWeight: 400,
-      fontSize: isMobileView ? "10px" : "18px",
+      fontSize: isMobileView ? "15px" : "18px",
     },
     body2: {
       fontFamily: "Rubik, sans-serif",
       fontWeight: 400,
-      fontSize: isMobileView ? "10px" : "16px",
+      fontSize: isMobileView ? "12px" : "16px",
     },
     button: {
       textTransform: "none",

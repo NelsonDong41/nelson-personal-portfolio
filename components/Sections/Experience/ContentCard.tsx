@@ -16,6 +16,7 @@ import Image from "next/image";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import Animations from "@/components/Util/Animations";
+import { MobileViewContext } from "@/pages/_app";
 
 interface ContentCardProps {
   cardInfo: CardInfo;
@@ -57,9 +58,10 @@ const ContentCard: React.FC<ContentCardProps> = ({
   let { title, subtitle, description, dateStart, dateEnd, techStack, logo } =
     cardInfo;
   const theme = useTheme();
+  const {isMobileView} = useContext(MobileViewContext);
 
   const StyledContentCard = styled(motion(Box))<{ hovered: string }>`
-    padding: 3%;
+    padding: ${isMobileView ? "6% 3%" : "3%"};
     display: grid;
     grid-template-columns: 1fr 3fr;
     background-color: ${theme.palette.background.paper};
@@ -123,7 +125,7 @@ const ContentCard: React.FC<ContentCardProps> = ({
 
   const animationControls = useAnimation();
   const [ref, inView] = useInView({
-    threshold: 0.2,
+    threshold: 0.5,
     delay: 0.3
   });
 

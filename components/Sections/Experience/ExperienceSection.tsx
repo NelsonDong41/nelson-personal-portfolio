@@ -45,7 +45,7 @@ const ExperienceSection: React.FC<ExperienceSectionProps> = ({
 
   const animationControls = useAnimation();
   const [ref, inView] = useInView({
-    threshold: 1,
+    threshold: 0.5,
     delay: 0.3,
   });
 
