@@ -12,7 +12,6 @@ const HomePage: React.FC = () => {
           <RightPanel />
         </>
       </Layout>
-      <ScrollToTop />
     </>
   );
 };

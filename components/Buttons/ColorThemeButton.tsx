@@ -5,7 +5,7 @@ import Interactable from "../Util/Interactable";
 import styled from "@emotion/styled";
 import LocalFireDepartmentTwoToneIcon from '@mui/icons-material/LocalFireDepartmentTwoTone';
 import AcUnitTwoToneIcon from '@mui/icons-material/AcUnitTwoTone';
-import { motion, useCycle } from "framer-motion";
+import { motion } from "framer-motion";
 export default function ColorThemeButton() {
   const StyledColorButton = styled(motion(Button))`
     position: absolute;
@@ -22,10 +22,6 @@ export default function ColorThemeButton() {
 
   const colorMode = useContext(ColorModeContext);
   const theme = useTheme();
-  const [animate, cycle] = useCycle(
-    { scale: 1, rotate: 0 },
-    { scale: 1, rotate: 180 }
-  )
 
   return (
     <>

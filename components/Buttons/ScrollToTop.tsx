@@ -1,6 +1,5 @@
-import { toggleCursorHover } from "@/lib/cursorEffect";
 import { KeyboardDoubleArrowUp } from "@mui/icons-material";
-import { Box, Button } from "@mui/material";
+import {  Button } from "@mui/material";
 import { animateScroll as scroll } from "react-scroll";
 import Interactable from "../Util/Interactable";
 
@@ -11,10 +10,10 @@ export default function ScrollToTop() {
         variant="contained"
         sx={{
           position: "fixed",
-          top: "92%",
-          left: "95%",
+          top: "92vh",
+          left: "93vw",
           height: "5vh",
-          width: "5vh",
+          width: "3vw",
         }}
         onClick={() => scroll.scrollToTop()}
         color = "success"

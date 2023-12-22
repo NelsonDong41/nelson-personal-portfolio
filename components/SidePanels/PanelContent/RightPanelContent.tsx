@@ -14,9 +14,9 @@ const StyledRight = styled.div`
 const RightPanelContent: React.FC = () => {
   return (
     <StyledRight>
-        <AboutSection id="about-section"/>
-        <ExperienceSection id="experiences-section"/>
-        <ProjectSection id="projects-section"/>
+        <AboutSection id="about-section" title = "About"/>
+        <ExperienceSection id="experiences-section" title = "Experiences"/>
+        <ProjectSection id="projects-section" title = "Projects"/>
         <ContactSection id="contact-section"/>
     </StyledRight>
   );

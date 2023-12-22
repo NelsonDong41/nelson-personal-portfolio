@@ -30,12 +30,13 @@ const StyledArrowRight = styled(ArrowForward)<{ hovered: string }>`
 
 const ProjectSection: React.FC<ProjectSectionProps> = ({
   id,
+  title
 }: ProjectSectionProps) => {
   const [linkHovered, setLinkHovered] = useState(false);
   const theme = useTheme();
   const animationControls = useAnimation();
   const [ref, inView] = useInView({
-    threshold: 1,
+    threshold: 0.5,
     delay: 0.3
   });
 
@@ -47,7 +48,7 @@ const ProjectSection: React.FC<ProjectSectionProps> = ({
   }, [animationControls, inView]);
 
   return (
-    <Section id={id}>
+    <Section id={id} title = {title}>
       <ExperienceSectionContent
         CardInfos={ProjectCardInfos.slice(0, PROJECT_DISPLAYED_COUNT)}
       />

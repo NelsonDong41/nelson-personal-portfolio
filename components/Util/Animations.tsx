@@ -33,5 +33,20 @@ const fadeInUp = {
   },
 };
 
+const staggerContainer = {
+  hidden: {  },
+  animate: {
+    transition: {
+      staggerChildren: 0.5
+    }
+  }
+}
 
-export default { hidden, fadeInUp};
+const bounce = {
+  hidden: { y : 0 },
+  animate: {
+    y: 17
+  }
+}
+
+export default { hidden, fadeInUp, staggerContainer, bounce};
