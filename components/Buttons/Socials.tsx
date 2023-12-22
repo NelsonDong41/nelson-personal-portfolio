@@ -11,6 +11,7 @@ import { SNACKBAR_TIMER } from "@/lib/constants";
 import { MobileViewContext } from "@/pages/_app";
 import { motion } from "framer-motion";
 import Animations from "../Util/Animations";
+import RemoveOverflow from "../Util/RemoveOverflow";
 
 interface SocialIconWrapperProps {
   children: React.ReactElement;
@@ -23,7 +24,7 @@ export default function Socials() {
   const [copied, setCopied] = useState(false);
   const { isMobileView } = useContext(MobileViewContext);
 
-  const StyledStack = styled(Stack)`
+  const StyledStack = styled(motion(Stack))`
     flex-direction: row;
     gap: 2vw;
     margin: 5vh 0 0 0;
@@ -50,29 +51,38 @@ export default function Socials() {
     name,
   }: SocialIconWrapperProps) => {
     return (
-      <Tooltip title={name}>
-        <IconButton color="info" style={{ fontSize: "normal" }}>
-          <Interactable
-            onMouseClick={() => SocialIconOnClick(copyToClipboard, link)}
-          >
-            <motion.div
-              variants={Animations.bounceTransition}
-              animate={{
-                marginBottom: ["1vh", "-1vh"],
-                backgroundColor: ["#ff6699", "#6666ff"],
-              }}
-            >
-              {children}
-            </motion.div>
-          </Interactable>
-        </IconButton>
-      </Tooltip>
+      <RemoveOverflow>
+        <motion.div
+          style={{ fontSize: "normal" }}
+          variants={Animations.bounce}
+          transition={{
+            ease: "easeOut",
+            duration: 2,
+            repeat: Infinity,
+            repeatType: "reverse",
+          }}
+        >
+          <Tooltip title={name}>
+            <IconButton color="info">
+              <Interactable
+                onMouseClick={() => SocialIconOnClick(copyToClipboard, link)}
+              >
+                {children}
+              </Interactable>
+            </IconButton>
+          </Tooltip>
+        </motion.div>
+      </RemoveOverflow>
     );
   };
 
   return (
     <>
-      <StyledStack>
+      <StyledStack
+        variants={Animations.staggerContainer}
+        initial="hidden"
+        animate="animate"
+      >
         <SocialIconWrapper
           name="LinkedIn"
           link="https://www.linkedin.com/in/nelson-dong"

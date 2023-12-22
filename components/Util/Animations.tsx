@@ -33,19 +33,20 @@ const fadeInUp = {
   },
 };
 
-const bounceTransition = {
-  marginBottom: {
-    duration: 0.4,
-    yoyo: Infinity,
-    ease: "easeOut",
-  },
-  backgroundColor: {
-    duration: 0,
-    yoyo: Infinity,
-    ease: "easeOut",
-    repeatDelay: 0.8,
-  },
+const staggerContainer = {
+  hidden: {  },
+  animate: {
+    transition: {
+      staggerChildren: 0.5
+    }
+  }
 }
 
+const bounce = {
+  hidden: { y : 0 },
+  animate: {
+    y: 17
+  }
+}
 
-export default { hidden, fadeInUp, bounceTransition};
+export default { hidden, fadeInUp, staggerContainer, bounce};
