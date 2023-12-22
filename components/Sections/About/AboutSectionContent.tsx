@@ -9,7 +9,6 @@ const StyledAboutSectionContent = styled.div`
 
 const AboutSectionContent: React.FC = () => {
   const theme = useTheme();
-  const isMobileView = useMediaQuery(theme.breakpoints.down("laptop"));
 
   return (
     <StyledAboutSectionContent>
