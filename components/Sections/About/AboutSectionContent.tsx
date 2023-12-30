@@ -21,7 +21,7 @@ const AboutSectionContent: React.FC = () => {
         programming since then.
         <br />
         <br />
-        Now, I have the privilage to be attending Northeastern University and
+        Now, I have the privilege to be attending Northeastern University and
         have a co-op experience at{" "}
         <StyledLink link="https://www.woodmac.com/">
           Wood Mackenzie
