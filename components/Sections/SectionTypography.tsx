@@ -1,4 +1,4 @@
-import { Link, Typography } from "@mui/material";
+import { Link, Typography, useTheme } from "@mui/material";
 import React from "react";
 import { palette, PaletteProps } from "@mui/system";
 import styled from "@emotion/styled";
@@ -74,13 +74,14 @@ const StyledBody2: React.FC<StyledTypographyProps> = ({
 };
 
 const StyledLinkBase = styled(Link)<PaletteProps & StyledTypographyProps>`
-  ${palette};
+  ${palette}
 `;
 
 export default function StyledLink({
   link,
   children,
 }: PaletteProps & StyledTypographyProps) {
+  const theme = useTheme();
   return (
     <span
       onMouseEnter={() => {
@@ -95,6 +96,7 @@ export default function StyledLink({
         href={link || "404"}
         style={{ textDecoration: "none" }}
         target="_blank"
+        color = {theme.palette.info.light}
       >
         {children}
       </StyledLinkBase>
