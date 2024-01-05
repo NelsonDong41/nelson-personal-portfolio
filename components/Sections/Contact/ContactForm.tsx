@@ -74,12 +74,12 @@ export default function ContactForm() {
         margin="normal"
         {...register("name", { required: true })}
         error={!!errors.name}
-        label="First Name"
+        label="Name"
         variant="filled"
         helperText={
           "message" in (errorMessages?.name || {})
             ? `${
-                errorMessages?.name.message || "Please enter your first name!"
+                errorMessages?.name.message || "Please enter your name!"
               }`
             : ""
         }

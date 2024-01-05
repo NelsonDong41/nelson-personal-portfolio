@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import type { InferGetServerSidePropsType, GetServerSideProps } from 'next'
+import type { GetServerSideProps } from 'next'
 import { ContactFormSchema } from '@/lib/types';
 import { Resend } from 'resend';
 import { CreateEmailResponse } from 'resend/build/src/emails/interfaces';
@@ -17,7 +17,7 @@ const PostHandler = async (req: NextApiRequest, res: NextApiResponse<ResponseDat
     const {name, email, message} = result.data;
 
     const response : CreateEmailResponse= await resend.emails.send({
-      from: `onboarding@resend.dev`,
+      from: `Website <onboarding@resend.dev>`,
       to: 'nelsondong158@gmail.com',
       subject: `${name} sent an email - ${email}`,
       text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,

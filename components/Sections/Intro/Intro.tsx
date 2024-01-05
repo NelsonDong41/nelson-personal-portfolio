@@ -4,7 +4,7 @@ export default () => {
   return (
     <div style={{ textAlign: "center", height: "5vh" }}>
       <StyledBody1>
-        Avid learner, developer and most importantly, pursuer of fun 
+        Northeastern '25, BS CS Student, Software Engineer
       </StyledBody1>
     </div>
   );

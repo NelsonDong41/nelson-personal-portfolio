@@ -26,7 +26,7 @@ export const ExperienceCardInfos: CardInfo[] = sortCardInfos([
     title: "HackBeanpot",
     subtitle: "Software Engineer",
     description:
-      "Joined the HackBeanpot core team after participating in the 2023 Hackathon Event. Now I create and progress towards the common goal of making the next year's hackathon as great at it was for me. I created the main site for the new theme and architected the internal tools backend for team sorting during the event. I also helped freshen up the site with an animation revamp.",
+      "I created the main site for the new theme and architected the internal tools backend for team sorting during the event. I also helped freshen up the site with an animation revamp. I joined the HackBeanpot team after participating in the 2023 event and now, I work with my peers towards the common goal of making the next year's hackathon greater than the last. ",
     dateStart: new Date(2023, 7),
     dateEnd: new Date(),
     techStack: [
@@ -44,7 +44,7 @@ export const ExperienceCardInfos: CardInfo[] = sortCardInfos([
   {
     title: "Paynalli Systems",
     subtitle: "Software Engineer Intern",
-    description: "As a very quick internship, I helped to freshen up an internal tools UI page by architecting the page with Next.js. I then redesigned it with Tailwind and Bootstrap.",
+    description: "I helped to freshen up an internal tools UI page by redesigning and architecting the entire page with Next.js. I then reimaged the visuals with Tailwind and Bootstrap.",
     dateStart: new Date(2023, 4),
     dateEnd: new Date(2023, 7),
     techStack: [REACT, NEXTJS, JS, "Material UI", "Tailwind", "Bootstrap"],
@@ -54,7 +54,7 @@ export const ExperienceCardInfos: CardInfo[] = sortCardInfos([
   {
     title: "Wood Mackenzie",
     subtitle: "Software Engineer Co-op",
-    description: `My first full professional coop where I learned and was immersed in the professional industry. In the hybrid monolithic and microservice architecture I worked on, I migrated core functionality to asyncronous task handlers and pioneered free text filtering to a core table. I also worked as a release engineer for the monthly code releases to production environments. Outside of technicals, I also helped interview the following co-op cycle candidates and conducted daily code reviews/browser tests.`,
+    description: `My first co-op experience where I was immersed in the professional industry. I migrated core functionality to asyncronous task handlers and pioneered free text filtering onto critical table. I also worked as a release engineer for one of the monthly code releases to production environments. Outside of technicals, I also helped interview the following co-op cycle candidates and conducted daily code reviews/browser tests.`,
     dateStart: new Date(2023, 7),
     dateEnd: new Date(),
     techStack: ["Java Spring", JS, REACT, "AWS", "Postgres", "CI/CD"],
@@ -67,7 +67,7 @@ export const PROJECT_DISPLAYED_COUNT = 3;
 export const ProjectCardInfos: CardInfo[] = sortCardInfos([
   {
     title: "Portfolio Website",
-    description: `You are on this website right now! Inspired by many of my peers, I created this website as an archive for my projects and work experiences. Created proudly with Next.js and Typescript and a bit of framer motion for animation.`,
+    description: `I created this website as an archive for my projects and work experiences. Created proudly with Next.js and Typescript and a bit of framer motion for animation.`,
     dateStart: new Date(2023, 11),
     dateEnd: undefined,
     techStack: [NEXTJS, "Styled Components", TS, JS, "Resend", "Framer Motion"],
@@ -76,7 +76,7 @@ export const ProjectCardInfos: CardInfo[] = sortCardInfos([
   },
   {
     title: "WiseWallet",
-    description: `A top 6 placing hackathon project at HackBeanpot 2023, showcasing a chrome extension that helps you save money by archiving transactions made with a friendly UI. On the "evil" side, features a "payment blocker", completely blocking any payment button.`,
+    description: `A top 6 placing hackathon project at HackBeanpot 2023, showcasing a Chrome extension that helps you save money by archiving transactions made with a friendly UI. The "Evil Mode" button features a payment blocker, which completely blocks all payment buttons on any website.`,
     dateStart: new Date(2023, 2),
     dateEnd: undefined,
     techStack: [REACT, "Chrome Storage API", TS, JS],
@@ -85,7 +85,7 @@ export const ProjectCardInfos: CardInfo[] = sortCardInfos([
   },
   {
     title: "Mockple",
-    description: `An E-commerce platform featuring an admin panel and a customer facing front end. Taking advantage of modern frontend design with a backend that utilizes AWS S3, Stripe API, MongoDB and Google OAuth.`,
+    description: `An e-commerce platform featuring an admin panel and a customer facing front end. Takes advantage of modern frontend design with a backend that utilizes AWS S3, Stripe API, MongoDB and authentication through NextAuth and Google OAuth.`,
     dateStart: new Date(2023, 6),
     dateEnd: undefined,
     techStack: [
