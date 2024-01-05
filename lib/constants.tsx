@@ -54,7 +54,7 @@ export const ExperienceCardInfos: CardInfo[] = sortCardInfos([
   {
     title: "Wood Mackenzie",
     subtitle: "Software Engineer Co-op",
-    description: `My first co-op experience where I was immersed in the professional industry. I migrated core functionality to asyncronous task handlers and pioneered free text filtering onto critical table. I also worked as a release engineer for one of the monthly code releases to production environments. Outside of technicals, I also helped interview the following co-op cycle candidates and conducted daily code reviews/browser tests.`,
+    description: `My first co-op experience where I was immersed in the professional industry. I migrated core functionality to asynchronous task handlers and pioneered free text filtering onto critical table. I also worked as a release engineer for one of the monthly code releases to production environments. Outside of technicals, I also helped interview the following co-op cycle candidates and conducted daily code reviews/browser tests.`,
     dateStart: new Date(2023, 7),
     dateEnd: new Date(),
     techStack: ["Java Spring", JS, REACT, "AWS", "Postgres", "CI/CD"],
