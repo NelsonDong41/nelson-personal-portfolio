@@ -33,7 +33,7 @@ export default function ColorThemeButton() {
           rotate: [0, 0, 270, 270, 0]
         }}
         transition = {{ duration: 2 }}
-        color = "success"
+        color="secondary"
       >
         <motion.div>
           <Interactable>
