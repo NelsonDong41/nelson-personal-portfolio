@@ -12,7 +12,7 @@ export default function CustomToast({ message, severity, open }: ToastProps) {
     open={open}
     message="Email Sent!"
     autoHideDuration={SNACKBAR_TIMER}
-    anchorOrigin={{ vertical: "top", horizontal: "left" }}
+    anchorOrigin={{ vertical: "top", horizontal: "right" }}
     style={{
       margin: "2vh 2vw",
       width: "fit-content",

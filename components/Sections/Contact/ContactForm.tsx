@@ -153,14 +153,14 @@ export default function ContactForm() {
       >
         <SendIcon
           style={{
-            transform: `${isSubmitting ? "translateX(10vw)" : "translateX(0)"}`,
+            transform: `${isSubmitting ? "translateX(20vw)" : "translateX(0)"}`,
             transition: "ease-in-out 200ms",
           }}
         />
         Send Message
       </Button>
       <CustomToast
-        severity={submitErrors ? "error" : "success"}
+        severity={submitErrors ? "error" : "info"}
         open={submitted}
         message={submitErrors ? "Email Sending Failed!!" : "Email Sent!"}
       />
